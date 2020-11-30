@@ -19,10 +19,10 @@ void Cube::u()
   std::cout << "Cube state before \'u\': " << std::endl;
   Print();
   std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].begin() + 3);
-  std::copy(state[4].begin(), state[4].begin() + 3, state[1].begin());
-  std::copy(state[3].begin(), state[3].begin() + 3, state[4].begin());
-  std::copy(state[2].begin(), state[2].begin() + 3, state[3].begin());
-  std::copy(tmp.begin(), tmp.begin() + 3, state[2].begin());
+  std::copy(state[2].begin(), state[2].begin() + 3, state[1].begin());
+  std::copy(state[3].begin(), state[3].begin() + 3, state[2].begin());
+  std::copy(state[4].begin(), state[4].begin() + 3, state[3].begin());
+  std::copy(tmp.begin(), tmp.begin() + 3, state[4].begin());
   std::cout << "\'u\' rotation complete" << std::endl;
   std::cout << "Cube state after \'u\': " << std::endl;
   Print();
