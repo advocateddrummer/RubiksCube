@@ -51,6 +51,15 @@ class Cube
      */
     void Print();
 
+    /** \brief Determine if the cube is solved.
+     * This method compares the cube state against a solved cube state to
+     * determine if the cube has been solved.
+     *
+     * \retval 1 if the cube is solved.
+     * \retval 0 if the cube is not solved.
+     */
+    int IsSolved();
+
     /*
      * TODO: implement cube rotations a la:
      * x/xp

@@ -13,6 +13,27 @@ Cube::Cube()
             { 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'}};
 }
 
+int Cube::IsSolved()
+{
+  /* Loop over all faces, grab the first element on each face and compare the
+   * remaining elements against it, if they all match, for all faces, the cube
+   * is solved.
+   */
+  for ( const auto & v : state ) {
+    const char first = v.front();
+
+    for ( auto c = v.begin() + 1; c != v.end(); c++ ) {
+      /* A subsequent element on the current face does not match the first
+       * element, the cube is _not_ solved.
+       */
+      if (first != *c)
+        return 0;
+    }
+  }
+  /* All faces have matching colors, the cube is solved. */
+  return 1;
+}
+
 void Cube::u()
 {
   std::cout << "Performing a \'u\' rotation..." << std::endl;
