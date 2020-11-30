@@ -56,8 +56,21 @@ class Cube
      * equivalent to the 'l' rotation followed by a 'x' rotation of the entire
      * cube.)
      */
-    /* Up face methods. */
+
+    /********************************************************************/
+    /************************* Up face methods. *************************/
+    /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the up (u) face.
+     *
+     * This method rotates the upper face clockwise.
+     */
     void u();
+
+    /** \brief Perform a counterclockwise rotation of the up (u) face.
+     *
+     * This method rotates the upper face counterclockwise.
+     */
     void up();
     void uu();
 
@@ -65,7 +78,9 @@ class Cube
     void Up();
     void UU();
 
-    /* Front face methods. */
+    /********************************************************************/
+    /*********************** Front face methods. ************************/
+    /********************************************************************/
     void f();
     void fp();
     void ff();
@@ -74,7 +89,9 @@ class Cube
     void Fp();
     void FF();
 
-    /* Right face methods. */
+    /********************************************************************/
+    /*********************** Right face methods. ************************/
+    /********************************************************************/
     void r();
     void rp();
     void rr();
@@ -83,7 +100,9 @@ class Cube
     void Rp();
     void RR();
 
-    /* Back face methods. */
+    /********************************************************************/
+    /************************ Back face methods. ************************/
+    /********************************************************************/
     void b();
     void bp();
     void bb();
@@ -92,7 +111,9 @@ class Cube
     void Bp();
     void BB();
 
-    /* Left face methods. */
+    /********************************************************************/
+    /************************ Left face methods. ************************/
+    /********************************************************************/
     void l();
     void lp();
     void ll();
@@ -101,7 +122,9 @@ class Cube
     void Lp();
     void LL();
 
-    /* Down face methods. */
+    /********************************************************************/
+    /************************ Down face methods. ************************/
+    /********************************************************************/
     void d();
     void dp();
     void dd();

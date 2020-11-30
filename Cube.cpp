@@ -13,10 +13,6 @@ Cube::Cube()
             { 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'}};
 }
 
-/** \brief Perform a clockwise rotation of the up (u) face.
- *
- * This method rotates the upper face clockwise.
- */
 void Cube::u()
 {
   std::cout << "Performing a \'u\' rotation..." << std::endl;
@@ -37,10 +33,6 @@ void Cube::u()
   Print();
 }
 
-/** \brief Perform a counterclockwise rotation of the up (u) face.
- *
- * This method rotates the upper face counterclockwise.
- */
 void Cube::up()
 {
   std::cout << "Performing a \'up\' rotation..." << std::endl;
