@@ -45,6 +45,10 @@ class Cube
      */
     virtual ~Cube();
 
+    /** \brief Print cube state.
+     * This method simply prints out the current cube state, as represented by
+     * the internal 'state' vector variable.
+     */
     void Print();
 
     /*
