@@ -12,6 +12,24 @@ class Cube
      *   * fourth vector: back face,   green
      *   * fifth vector:  left face,   yellow
      *   * sixth vector:  top face,    red
+     *
+     *   Currently, the map is as follows: the first three elements represent
+     *   the top three cubies, the next two elements are the remaining two
+     *   cubies on the right side, the next two elements, the remaining two
+     *   bottom cubies, the next element, the single remaining cubies on the
+     *   left side, and the last element represents the center cubie. To
+     *   determine which are the top, right, bottom, and left cubies, imagine
+     *   that the cube has been rotated such that the face in question is in
+     *   the 'front' position, (where the blue side is by default). Below is a
+     *   graphic to help illustrate.
+     *
+     *      ----  ----  ----
+     *     | 0 | | 1 | | 2 |
+     *      ----  ----  ----
+     *     | 7 | | 8 | | 3 |
+     *      ----  ----  ----
+     *     | 6 | | 5 | | 4 |
+     *      ----  ----  ----
      */
     std::vector<std::vector<char>> state;
 
