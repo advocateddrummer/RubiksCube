@@ -37,6 +37,30 @@ void Cube::u()
   Print();
 }
 
+/** \brief Perform a counterclockwise rotation of the up (u) face.
+ *
+ * This method rotates the upper face counterclockwise.
+ */
+void Cube::up()
+{
+  std::cout << "Performing a \'up\' rotation..." << std::endl;
+  std::cout << "Cube state before \'up\': " << std::endl;
+  Print();
+  /* Make temporary copy of upper front edge. */
+  std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].begin() + 3);
+  /* Move upper left edge to upper front. */
+  std::copy(state[4].begin(), state[4].begin() + 3, state[1].begin());
+  /* Move upper back edge to upper left. */
+  std::copy(state[3].begin(), state[3].begin() + 3, state[4].begin());
+  /* Move upper right edge to upper back. */
+  std::copy(state[2].begin(), state[2].begin() + 3, state[3].begin());
+  /* Move upper front edge to upper right. */
+  std::copy(tmp.begin(), tmp.begin() + 3, state[2].begin());
+  std::cout << "\'up\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'up\': " << std::endl;
+  Print();
+}
+
 void Cube::Print()
 {
   std::cout << "in Cube::Print()..." << std::endl;
