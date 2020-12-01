@@ -103,6 +103,13 @@ class Cube
      * This method rotates the upper face counterclockwise.
      */
     void up();
+
+    /** \brief Perform a double rotation of the up (u) face.
+     *
+     * This method rotates the upper face twice; the direction in this case
+     * does not matter as both a double clockwise or counterclockwise rotation
+     * results in the same state.
+     */
     void uu();
 
     void U();
