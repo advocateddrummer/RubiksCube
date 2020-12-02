@@ -20,8 +20,11 @@ class Cube
      *   left side, and the last element represents the center cubie. To
      *   determine which are the top, right, bottom, and left cubies, imagine
      *   that the cube has been rotated such that the face in question is in
-     *   the 'front' position, (where the blue side is by default). Below is a
-     *   graphic to help illustrate.
+     *   the 'front' position, (where the blue side is by default). The back
+     *   face most be rotated horizontally to the front location whereas the
+     *   top and bottom faces must be rotated vertically to the front position
+     *   to identify the cubie orientation for these faces. Below is a graphic
+     *   to help illustrate.
      *
      *      ----  ----  ----
      *     | 0 | | 1 | | 2 |
