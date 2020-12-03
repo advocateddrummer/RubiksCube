@@ -54,13 +54,14 @@ class Cube
      *            * 11 = L (left and middle faces)
      *            * 12 = D (lower/bottom/down and middle faces)
      *            * 13 = m (middle face)
-     * \param[in] direction direction to rotate the face as follows:
+     * \param[in] direction [defaults to 1] direction to rotate the face as
+     *            follows:
      *            * 1  = one rotation clockwise
      *            * -1 = one rotation counterclockwise
      *            * 2  = rotate face twice
      *
      */
-    void RotateFace(const int faceID, const int direction);
+    void RotateFace(const int faceID, const int direction = 1);
 
   public:
 

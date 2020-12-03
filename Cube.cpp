@@ -34,7 +34,6 @@ int Cube::IsSolved()
   return 1;
 }
 
-/* TODO: default direction to clockwise? */
 void Cube::RotateFace(const int faceID, const int direction)
 {
   /* This array contains the indices into the state array that correspond to
