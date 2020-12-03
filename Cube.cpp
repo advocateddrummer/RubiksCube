@@ -87,8 +87,38 @@ void Cube::RotateFace(const int faceID, const int direction)
     /* This case handles all left face rotations. */
     case 5 :
       break;
+
     /* This case handles all lower/down/bottom face rotations. */
     case 6 :
+      {
+        const std::vector<int> index = indices[0];
+        if (direction == 1) {
+          /* Make temporary copy of first edge. */
+          std::vector<char> tmp = std::vector<char>(state[index[3]].begin() + 4, state[index[3]].begin() + 7);
+          /* Rotate bottom/down face clockwise. */
+          for ( auto i = index.rbegin() + 1; i != index.rend(); i++ )
+            std::copy(state[*i].begin() + 4, state[*i].begin() + 7, state[*i + 1].begin() + 4);
+
+          std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(0)].begin() + 4);
+        } else if (direction == -1) {
+          /* Make temporary copy of first edge. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin() + 4, state[index.at(0)].begin() + 7);
+          /* Rotate bottom/down face counterclockwise. */
+          for ( auto i = index.begin() + 1; i != index.end(); i++ )
+            std::copy(state[*i].begin() + 4, state[*i].begin() + 7, state[*i - 1].begin() + 4);
+
+          std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin() + 4);
+        } else if (direction == 2) {
+          /* Rotate bottom/down face twice; swap front, back edges, left, right
+           * edges.
+           */
+          std::swap_ranges(state[index.at(0)].begin() + 4, state[index.at(0)].begin() + 7, state[index.at(2)].begin() + 4);
+          std::swap_ranges(state[index.at(1)].begin() + 4, state[index.at(1)].begin() + 7, state[index.at(3)].begin() + 4);
+        } else {
+          std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
+        }
+        break;
+      }
       break;
     /* This case handles all upper/top face rotations that also include the
      * middle/adjacent layer.
