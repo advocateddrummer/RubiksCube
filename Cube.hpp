@@ -192,8 +192,25 @@ class Cube
     /********************************************************************/
     /************************ Down face methods. ************************/
     /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the down (d) face.
+     *
+     * This method rotates the bottom/down face clockwise.
+     */
     void d();
+
+    /** \brief Perform a counterclockwise rotation of the down (d) face.
+     *
+     * This method rotates the bottom/down face counterclockwise.
+     */
     void dp();
+
+    /** \brief Perform a double rotation of the down (d) face.
+     *
+     * This method rotates the bottom/down face twice; the direction in this
+     * case does not matter as both a double clockwise or counterclockwise
+     * rotation results in the same state.
+     */
     void dd();
 
     void D();

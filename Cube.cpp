@@ -44,6 +44,7 @@ void Cube::RotateFace(const int faceID, const int direction)
   const std::vector<std::vector<int>> indices = { { 1, 2, 3, 4}, {0, 2, 5, 4}, {0, 3, 5, 1} };
 
   switch (faceID) {
+    /* TODO: case 1 and 6 are essentially mirrors; agglomerate them. */
     /* This case handles all upper/top face rotations. */
     case 1 :
       {
@@ -189,6 +190,39 @@ void Cube::uu()
   RotateFace(1, 2);
   std::cout << "\'uu\' rotation complete" << std::endl;
   std::cout << "Cube state after \'uu\': " << std::endl;
+  Print();
+}
+
+void Cube::d()
+{
+  std::cout << "Performing a \'d\' rotation..." << std::endl;
+  std::cout << "Cube state before \'d\': " << std::endl;
+  Print();
+  RotateFace(6, 1);
+  std::cout << "\'d\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'d\': " << std::endl;
+  Print();
+}
+
+void Cube::dp()
+{
+  std::cout << "Performing a \'dp\' rotation..." << std::endl;
+  std::cout << "Cube state before \'dp\': " << std::endl;
+  Print();
+  RotateFace(6, -1);
+  std::cout << "\'dp\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'dp\': " << std::endl;
+  Print();
+}
+
+void Cube::dd()
+{
+  std::cout << "Performing a \'dd\' rotation..." << std::endl;
+  std::cout << "Cube state before \'dd\': " << std::endl;
+  Print();
+  RotateFace(6, 2);
+  std::cout << "\'dd\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'dd\': " << std::endl;
   Print();
 }
 
