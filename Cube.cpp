@@ -40,7 +40,7 @@ void Cube::RotateFace(const int faceID, const int direction)
    * the faces required for u/d rotations (indices[0]), f/b rotations
    * (indices[1]), and r/l rotations (indices[2]).
    */
-  const std::vector<std::vector<int>> indices = { { 1, 2, 3, 4}, {0, 2, 5, 4}, {0, 3, 5, 1} };
+  const std::vector<std::vector<int>> indices = { { 1, 2, 3, 4}, {0, 2, 5, 4}, {5, 1, 0, 3} };
 
   switch (faceID) {
     /* TODO: case 1 and 6 are essentially mirrors; agglomerate them. */
