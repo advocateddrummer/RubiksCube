@@ -53,7 +53,7 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].begin() + 3);
           /* Rotate upper face clockwise. */
           for ( auto i = index.begin() + 1; i != index.end(); i++ )
-            std::copy(state[*i].begin(), state[*i].begin() + 3, state[*i - 1].begin());
+            std::copy(state[*i].begin(), state[*i].begin() + 3, state[*(i - 1)].begin());
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin());
         } else if (direction == -1) {
@@ -61,7 +61,7 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::vector<char> tmp = std::vector<char>(state[index[3]].begin(), state[index[3]].begin() + 3);
           /* Rotate upper face counterclockwise. */
           for ( auto i = index.rbegin() + 1; i != index.rend(); i++ )
-            std::copy(state[*i].begin(), state[*i].begin() + 3, state[*i + 1].begin());
+            std::copy(state[*i].begin(), state[*i].begin() + 3, state[*(i - 1)].begin());
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(0)].begin());
         } else if (direction == 2) {
