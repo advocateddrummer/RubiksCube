@@ -36,6 +36,32 @@ class Cube
      */
     std::vector<std::vector<char>> state;
 
+    /** \brief Generalized face rotation method.
+     *
+     * This method generalizes the rotation of cube faces.
+     *
+     * \param[in] faceID the face identifier as follows:
+     *            * 1  = u (upper/top face)
+     *            * 2  = f (front face)
+     *            * 3  = r (right face)
+     *            * 4  = b (back face)
+     *            * 5  = l (left face)
+     *            * 6  = d (lower/bottom/down face)
+     *            * 7  = U (upper/top and middle faces)
+     *            * 8  = F (front and middle faces)
+     *            * 9  = R (right and middle faces)
+     *            * 10 = B (back and middle faces)
+     *            * 11 = L (left and middle faces)
+     *            * 12 = D (lower/bottom/down and middle faces)
+     *            * 13 = m (middle face)
+     * \param[in] direction direction to rotate the face as follows:
+     *            * 1  = one rotation clockwise
+     *            * -1 = one rotation counterclockwise
+     *            * 2  = rotate face twice
+     *
+     */
+    void RotateFace(const int faceID, const int direction);
+
   public:
 
     /** \brief Default constructor.
