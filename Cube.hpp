@@ -160,8 +160,25 @@ class Cube
     /********************************************************************/
     /*********************** Right face methods. ************************/
     /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the right (r) face.
+     *
+     * This method rotates the right face clockwise.
+     */
     void r();
+
+    /** \brief Perform a counterclockwise rotation of the right (r) face.
+     *
+     * This method rotates the right face counterclockwise.
+     */
     void rp();
+
+    /** \brief Perform a double rotation of the right (u) face.
+     *
+     * This method rotates the right face twice; the direction in this case
+     * does not matter as both a double clockwise or counterclockwise rotation
+     * results in the same state.
+     */
     void rr();
 
     void R();
