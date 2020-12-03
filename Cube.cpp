@@ -134,16 +134,7 @@ void Cube::u()
   std::cout << "Performing a \'u\' rotation..." << std::endl;
   std::cout << "Cube state before \'u\': " << std::endl;
   Print();
-  /* Make temporary copy of upper front edge. */
-  std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].begin() + 3);
-  /* Move upper right edge to upper front. */
-  std::copy(state[2].begin(), state[2].begin() + 3, state[1].begin());
-  /* Move upper back edge to upper right. */
-  std::copy(state[3].begin(), state[3].begin() + 3, state[2].begin());
-  /* Move upper left edge to upper back. */
-  std::copy(state[4].begin(), state[4].begin() + 3, state[3].begin());
-  /* Move upper front edge to upper left. */
-  std::copy(tmp.begin(), tmp.begin() + 3, state[4].begin());
+  RotateFace(1, 1);
   std::cout << "\'u\' rotation complete" << std::endl;
   std::cout << "Cube state after \'u\': " << std::endl;
   Print();
@@ -154,16 +145,7 @@ void Cube::up()
   std::cout << "Performing a \'up\' rotation..." << std::endl;
   std::cout << "Cube state before \'up\': " << std::endl;
   Print();
-  /* Make temporary copy of upper front edge. */
-  std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].begin() + 3);
-  /* Move upper left edge to upper front. */
-  std::copy(state[4].begin(), state[4].begin() + 3, state[1].begin());
-  /* Move upper back edge to upper left. */
-  std::copy(state[3].begin(), state[3].begin() + 3, state[4].begin());
-  /* Move upper right edge to upper back. */
-  std::copy(state[2].begin(), state[2].begin() + 3, state[3].begin());
-  /* Move upper front edge to upper right. */
-  std::copy(tmp.begin(), tmp.begin() + 3, state[2].begin());
+  RotateFace(1, -1);
   std::cout << "\'up\' rotation complete" << std::endl;
   std::cout << "Cube state after \'up\': " << std::endl;
   Print();
@@ -174,18 +156,7 @@ void Cube::uu()
   std::cout << "Performing a \'uu\' rotation..." << std::endl;
   std::cout << "Cube state before \'uu\': " << std::endl;
   Print();
-  /* Make temporary copy of upper front edge. */
-  std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].begin() + 3);
-  /* Move upper back edge to upper front. */
-  std::copy(state[3].begin(), state[3].begin() + 3, state[1].begin());
-  /* Move upper front edge to upper back. */
-  std::copy(tmp.begin(), tmp.begin() + 3, state[3].begin());
-  /* Make temporary copy of upper right edge. */
-  tmp = std::vector<char>(state[2].begin(), state[2].begin() + 3);
-  /* Move upper left edge to upper right. */
-  std::copy(state[4].begin(), state[4].begin() + 3, state[2].begin());
-  /* Move upper right edge to upper left. */
-  std::copy(tmp.begin(), tmp.begin() + 3, state[4].begin());
+  RotateFace(1, 2);
   std::cout << "\'uu\' rotation complete" << std::endl;
   std::cout << "Cube state after \'uu\': " << std::endl;
   Print();
