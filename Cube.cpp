@@ -122,8 +122,55 @@ void Cube::RotateFace(const int faceID, const int direction)
     /* This case handles all back face rotations. */
     case 4 :
       break;
+
     /* This case handles all left face rotations. */
     case 5 :
+      {
+        const std::vector<int> index = indices[2];
+        if (direction == 1) {
+          /* Make temporary copy of first edge. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(2)].begin(), state[index.at(2)].begin() + 1);
+          tmp.push_back(state[index.at(2)].at(6));
+          tmp.push_back(state[index.at(2)].at(7));
+
+          /* Rotate left face clockwise. */
+          for ( auto i = index.rbegin() + 2; i != index.rend(); i++ ) {
+            std::copy(state[*i].begin(), state[*i].begin() + 1, state[*(i - 1)].begin());
+            std::copy(state[*i].begin() + 6, state[*i].begin() + 8, state[*(i - 1)].begin() + 6);
+          }
+
+          std::copy(state[index.at(3)].begin() + 2, state[index.at(3)].begin() + 4, state[index.at(0)].begin() + 6);
+          std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].begin() + 5, state[index.at(0)].begin());
+
+          std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin() + 2);
+        } else if (direction == -1) {
+          /* Make temporary copy of first edge. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].begin() + 1);
+          tmp.push_back(state[index.at(0)].at(6));
+          tmp.push_back(state[index.at(0)].at(7));
+
+          /* Rotate left face counterclockwise. */
+          for ( auto i = index.begin() + 1; i != index.end() - 1; i++ ) {
+            std::copy(state[*i].begin(), state[*i].begin() + 1, state[*(i - 1)].begin());
+            std::copy(state[*i].begin() + 6, state[*i].begin() + 8, state[*(i - 1)].begin() + 6);
+          }
+
+          std::copy(state[index.at(3)].begin() + 2, state[index.at(3)].begin() + 4, state[index.at(2)].begin() + 6);
+          std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].begin() + 5, state[index.at(2)].begin());
+
+          std::copy(tmp.begin(), tmp.begin() + 1, state[index.at(3)].begin() + 4);
+          std::copy(tmp.begin() + 1, tmp.end(), state[index.at(3)].begin() + 2);
+        } else if (direction == 2) {
+          /* Rotate left face twice; swap front, back edges, left, right edges. */
+          std::swap_ranges(state[index.at(0)].begin(), state[index.at(0)].begin() + 1, state[index.at(2)].begin());
+          std::swap_ranges(state[index.at(0)].begin() + 6, state[index.at(0)].begin() + 8, state[index.at(2)].begin() + 6);
+          std::swap_ranges(state[index.at(1)].begin(), state[index.at(1)].begin() + 1, state[index.at(3)].begin() + 4);
+          std::swap_ranges(state[index.at(1)].begin() + 6, state[index.at(1)].begin() + 8, state[index.at(3)].begin() + 2);
+        } else {
+          std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
+        }
+        break;
+      }
       break;
 
     /* This case handles all lower/down/bottom face rotations. */
@@ -293,6 +340,39 @@ void Cube::rr()
   RotateFace(3, 2);
   std::cout << "\'rr\' rotation complete" << std::endl;
   std::cout << "Cube state after \'rr\': " << std::endl;
+  Print();
+}
+
+void Cube::l()
+{
+  std::cout << "Performing a \'l\' rotation..." << std::endl;
+  std::cout << "Cube state before \'l\': " << std::endl;
+  Print();
+  RotateFace(5, 1);
+  std::cout << "\'l\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'l\': " << std::endl;
+  Print();
+}
+
+void Cube::lp()
+{
+  std::cout << "Performing a \'lp\' rotation..." << std::endl;
+  std::cout << "Cube state before \'lp\': " << std::endl;
+  Print();
+  RotateFace(5, -1);
+  std::cout << "\'lp\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'lp\': " << std::endl;
+  Print();
+}
+
+void Cube::ll()
+{
+  std::cout << "Performing a \'ll\' rotation..." << std::endl;
+  std::cout << "Cube state before \'ll\': " << std::endl;
+  Print();
+  RotateFace(5, 2);
+  std::cout << "\'ll\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'ll\': " << std::endl;
   Print();
 }
 

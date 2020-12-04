@@ -199,8 +199,25 @@ class Cube
     /********************************************************************/
     /************************ Left face methods. ************************/
     /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the left (l) face.
+     *
+     * This method rotates the left face clockwise.
+     */
     void l();
+
+    /** \brief Perform a counterclockwise rotation of the left (l) face.
+     *
+     * This method rotates the left face counterclockwise.
+     */
     void lp();
+
+    /** \brief Perform a double rotation of the left (l) face.
+     *
+     * This method rotates the left face twice; the direction in this case does
+     * not matter as both a double clockwise or counterclockwise rotation
+     * results in the same state.
+     */
     void ll();
 
     void L();
