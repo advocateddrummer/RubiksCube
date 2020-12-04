@@ -173,7 +173,7 @@ class Cube
      */
     void rp();
 
-    /** \brief Perform a double rotation of the right (u) face.
+    /** \brief Perform a double rotation of the right (r) face.
      *
      * This method rotates the right face twice; the direction in this case
      * does not matter as both a double clockwise or counterclockwise rotation
