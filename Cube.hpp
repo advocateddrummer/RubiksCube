@@ -205,8 +205,25 @@ class Cube
     /********************************************************************/
     /************************ Back face methods. ************************/
     /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the back (b) face.
+     *
+     * This method rotates the back face clockwise.
+     */
     void b();
+
+    /** \brief Perform a counterclockwise rotation of the back (b) face.
+     *
+     * This method rotates the back face counterclockwise.
+     */
     void bp();
+
+    /** \brief Perform a double rotation of the back (b) face.
+     *
+     * This method rotates the back face twice; the direction in this case
+     * does not matter as both a double clockwise or counterclockwise rotation
+     * results in the same state.
+     */
     void bb();
 
     void B();
