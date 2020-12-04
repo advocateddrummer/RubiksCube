@@ -75,8 +75,51 @@ void Cube::RotateFace(const int faceID, const int direction)
         }
         break;
       }
+
     /* This case handles all front face rotations. */
     case 2 :
+      {
+        const std::vector<int> index = indices[1];
+        if (direction == 1) {
+          /* Make temporary copy of first edge. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].begin() + 3);
+
+          /* Rotate front face clockwise. */
+          std::copy(state[index.at(1)].begin(), state[index.at(1)].begin() + 1, state[index.at(0)].begin() + 2);
+          std::copy(state[index.at(1)].begin() + 6, state[index.at(1)].begin() + 8, state[index.at(0)].begin());
+
+          std::copy(state[index.at(2)].begin() + 4, state[index.at(2)].begin() + 6, state[index.at(1)].begin() + 6);
+          std::copy(state[index.at(2)].begin() + 6, state[index.at(2)].begin() + 7, state[index.at(1)].begin());
+
+          std::copy(state[index.at(3)].begin() + 2, state[index.at(3)].begin() + 5, state[index.at(2)].begin() + 4);
+
+          std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin() + 2);
+        } else if (direction == -1) {
+          /* Make temporary copy of first edge. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].begin() + 3);
+
+          /* Rotate front face counterclockwise. */
+          std::copy(state[index.at(3)].begin() + 2, state[index.at(3)].begin() + 5, state[index.at(0)].begin());
+
+          std::copy(state[index.at(2)].begin() + 4, state[index.at(2)].begin() + 7, state[index.at(3)].begin() + 2);
+
+          std::copy(state[index.at(1)].begin(), state[index.at(1)].begin() + 1, state[index.at(2)].begin() + 6);
+          std::copy(state[index.at(1)].begin() + 6, state[index.at(1)].begin() + 8, state[index.at(2)].begin() + 4);
+
+          std::copy(tmp.begin() + 2, tmp.begin() + 3, state[index.at(1)].begin());
+          std::copy(tmp.begin(), tmp.begin() + 2, state[index.at(1)].begin() + 6);
+        } else if (direction == 2) {
+          /* Rotate front face twice; swap front, back edges, left, right
+           * edges.
+           */
+          std::swap_ranges(state[index.at(0)].begin(), state[index.at(0)].begin() + 3, state[index.at(2)].begin() + 4);
+          std::swap_ranges(state[index.at(1)].begin(), state[index.at(1)].begin() + 1, state[index.at(3)].begin() + 4);
+          std::swap_ranges(state[index.at(1)].begin() + 6, state[index.at(1)].begin() + 8, state[index.at(3)].begin() + 2);
+        } else {
+          std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
+        }
+        break;
+      }
       break;
 
     /* This case handles all right face rotations. */
@@ -274,6 +317,39 @@ void Cube::uu()
   RotateFace(1, 2);
   std::cout << "\'uu\' rotation complete" << std::endl;
   std::cout << "Cube state after \'uu\': " << std::endl;
+  Print();
+}
+
+void Cube::f()
+{
+  std::cout << "Performing a \'f\' rotation..." << std::endl;
+  std::cout << "Cube state before \'f\': " << std::endl;
+  Print();
+  RotateFace(2, 1);
+  std::cout << "\'f\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'f\': " << std::endl;
+  Print();
+}
+
+void Cube::fp()
+{
+  std::cout << "Performing a \'fp\' rotation..." << std::endl;
+  std::cout << "Cube state before \'fp\': " << std::endl;
+  Print();
+  RotateFace(2, -1);
+  std::cout << "\'fp\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'fp\': " << std::endl;
+  Print();
+}
+
+void Cube::ff()
+{
+  std::cout << "Performing a \'ff\' rotation..." << std::endl;
+  std::cout << "Cube state before \'ff\': " << std::endl;
+  Print();
+  RotateFace(2, 2);
+  std::cout << "\'ff\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'ff\': " << std::endl;
   Print();
 }
 

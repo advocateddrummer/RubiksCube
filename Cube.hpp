@@ -149,8 +149,25 @@ class Cube
     /********************************************************************/
     /*********************** Front face methods. ************************/
     /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the front (f) face.
+     *
+     * This method rotates the front face clockwise.
+     */
     void f();
+
+    /** \brief Perform a counterclockwise rotation of the front (f) face.
+     *
+     * This method rotates the front face counterclockwise.
+     */
     void fp();
+
+    /** \brief Perform a double rotation of the front (f) face.
+     *
+     * This method rotates the front face twice; the direction in this case
+     * does not matter as both a double clockwise or counterclockwise rotation
+     * results in the same state.
+     */
     void ff();
 
     void F();
