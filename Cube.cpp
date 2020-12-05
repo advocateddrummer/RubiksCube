@@ -13,6 +13,16 @@ Cube::Cube()
             { 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'}};
 }
 
+bool Cube::operator==(const Cube & rhs) const
+{
+  for ( int i = 0; i < 6; i++ )
+    for ( int j = 0; j < 9; j++ )
+      if ( state[i][j] != rhs.state[i][j] )
+        return false;
+
+  return true;
+}
+
 int Cube::IsSolved()
 {
   /* Loop over all faces, grab the first element on each face and compare the

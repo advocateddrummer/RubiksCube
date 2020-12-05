@@ -75,6 +75,11 @@ class Cube
      */
     virtual ~Cube();
 
+    /** \brief Overload equality operator
+     * Overload == in order to compare two cube states.
+     */
+    bool operator==(const Cube& rhs) const;
+
     /** \brief Print cube state.
      * This method simply prints out the current cube state, as represented by
      * the internal 'state' vector variable.
