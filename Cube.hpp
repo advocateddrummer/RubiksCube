@@ -75,6 +75,11 @@ class Cube
      */
     virtual ~Cube();
 
+    /** \brief Overload assignment operator
+     * Overload = in order to set one cube equal to another cube state.
+     */
+    void operator=(const Cube& rhs);
+
     /** \brief Overload equality operator
      * Overload == in order to compare two cube states.
      */

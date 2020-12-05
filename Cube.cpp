@@ -13,6 +13,15 @@ Cube::Cube()
             { 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'}};
 }
 
+void Cube::operator=(const Cube & rhs)
+{
+  for ( int i = 0; i < 6; i++ )
+    for ( int j = 0; j < 9; j++ )
+      state[i][j] = rhs.state[i][j];
+
+  return;
+}
+
 bool Cube::operator==(const Cube & rhs) const
 {
   for ( int i = 0; i < 6; i++ )
