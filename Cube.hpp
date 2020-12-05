@@ -36,6 +36,16 @@ class Cube
      */
     std::vector<std::vector<char>> state;
 
+    /* This variable holds the solved state of the cube for use in methods like
+     * ResetCube.
+     */
+    const std::vector<std::vector<char>> solvedState = { { 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'},
+                                                         { 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'},
+                                                         { 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'},
+                                                         { 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g'},
+                                                         { 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'},
+                                                         { 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'}};
+
     /** \brief Generalized face rotation method.
      *
      * This method generalizes the rotation of cube faces.
@@ -90,6 +100,11 @@ class Cube
      * the internal 'state' vector variable.
      */
     void Print();
+
+    /** \brief Reset cube state
+     * This method resets the cube state to the solved state.
+     */
+    void ResetCube();
 
     /** \brief Determine if the cube is solved.
      * This method compares the cube state against a solved cube state to

@@ -53,6 +53,15 @@ int Cube::IsSolved()
   return 1;
 }
 
+void Cube::ResetCube()
+{
+  for ( int i = 0; i < 6; i++ )
+    for ( int j = 0; j < 9; j++ )
+      state[i][j] = solvedState[i][j];
+
+  return;
+}
+
 void Cube::RotateFace(const int faceID, const int direction)
 {
   /* This array contains the indices into the state array that correspond to
