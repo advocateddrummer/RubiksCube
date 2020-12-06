@@ -243,9 +243,8 @@ void Cube::RotateFace(const int faceID, const int direction)
         const std::vector<int> index = indices[2];
         if (direction == 1) {
           /* Make temporary copy of first edge. */
-          std::vector<char> tmp = std::vector<char>(state[index.at(2)].begin(), state[index.at(2)].begin() + 1);
-          tmp.push_back(state[index.at(2)].at(6));
-          tmp.push_back(state[index.at(2)].at(7));
+          std::vector<char> tmp = std::vector<char>(state[index.at(2)].begin() + 6, state[index.at(2)].begin() + 8);
+          tmp.push_back(state[index.at(2)].at(0));
 
           /* Rotate left face clockwise. */
           for ( auto i = index.rbegin() + 2; i != index.rend(); i++ ) {
