@@ -95,6 +95,25 @@ class Cube
      */
     void RotateFace(const int faceID, const int direction = 1);
 
+    /** \brief Generalized cube rotation method.
+     *
+     * This method generalizes the rotation of an entire cube. In this code,
+     * the x-axis passes through the r/l faces, the y-axis through the u/d
+     * faces, and the z-axis through the f/b faces.
+     *
+     * \param[in] axis the axis identifier as follows:
+     *            * 1  = cube rotation about x axis
+     *            * 2  = cube rotation about y axis
+     *            * 3  = cube rotation about z axis
+     * \param[in] direction [defaults to 1] direction to rotate the face as
+     *            follows:
+     *            * 1  = cube rotation clockwise
+     *            * -1 = cube rotation counterclockwise
+     *            * 2  = rotate cube twice
+     *
+     */
+    void RotateCube(const int axis, const int direction = 1);
+
   public:
 
     /** \brief Default constructor.

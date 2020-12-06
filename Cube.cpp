@@ -95,6 +95,120 @@ void Cube::PermuteFace(const int faceID, const int direction)
     std::cout << "Error: incorrect direction passed to PermuteFace..." << std::endl;
 }
 
+void Cube::RotateCube(const int axis, const int direction)
+{
+  /* This array contains the indices into the state array that correspond to
+   * the faces required for x-axis cube rotations (indices[0]), y-axis cube
+   * rotations (indices[1]), and z-axis cube rotations (indices[2]).
+   */
+  const std::vector<std::vector<int>> indices = { {5, 1, 0, 3}, {1, 2, 3, 4}, {5, 2, 0, 4} };
+
+  switch (axis) {
+    /* Rotate cube around x-axis. */
+    case 1 :
+      {
+        const std::vector<int> index = indices[0];
+
+        /* Rotate cube clockwise around x-axis. */
+        if (direction == 1)
+        {
+          /* Make temporary copy of top face. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].end());
+          /* Rotate front face to top face. */
+          std::copy(state[index.at(1)].begin(), state[index.at(1)].end(), state[index.at(0)].begin());
+          /* Rotate bottom face to front face. */
+          std::copy(state[index.at(2)].begin(), state[index.at(2)].end(), state[index.at(1)].begin());
+          /* Rotate back face to bottom face. */
+          std::copy(state[index.at(3)].begin(), state[index.at(3)].begin() + 4, state[index.at(2)].begin() + 4);
+          std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].end() - 1, state[index.at(2)].begin());
+          std::copy(state[index.at(3)].end() - 1, state[index.at(3)].end(), state[index.at(2)].end() - 1);
+          /* Rotate top face to back face. */
+          std::copy(tmp.begin(), tmp.begin() + 4, state[index.at(3)].begin() + 4);
+          std::copy(tmp.begin() + 4, tmp.end() - 1, state[index.at(3)].begin());
+          std::copy(tmp.end() - 1, tmp.end(), state[index.at(3)].end() - 1);
+
+          /* Permute right face. */
+          PermuteFace(2, 1);
+
+          /* Permute left face. */
+          PermuteFace(4, -1);
+        }
+        /* Rotate cube counterclockwise around x-axis. */
+        else if (direction == -1)
+        {
+          /* Make temporary copy of top face. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].end());
+          /* Rotate back face to top face. */
+          std::copy(state[index.at(3)].begin(), state[index.at(3)].begin() + 4, state[index.at(0)].begin() + 4);
+          std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].end() - 1, state[index.at(0)].begin());
+          std::copy(state[index.at(3)].end() - 1, state[index.at(3)].end(), state[index.at(0)].end() - 1);
+          /* Rotate bottom face to back face. */
+          std::copy(state[index.at(2)].begin(), state[index.at(2)].begin() + 4, state[index.at(3)].begin() + 4);
+          std::copy(state[index.at(2)].begin() + 4, state[index.at(2)].end() - 1, state[index.at(3)].begin());
+          std::copy(state[index.at(2)].end() - 1, state[index.at(2)].end(), state[index.at(3)].end() - 1);
+          /* Rotate front face to bottom face. */
+          std::copy(state[index.at(1)].begin(), state[index.at(1)].end(), state[index.at(2)].begin());
+          /* Rotate top face to front face. */
+          std::copy(tmp.begin(), tmp.end(), state[index.at(1)].begin());
+
+          /* Permute right face. */
+          PermuteFace(2, -1);
+
+          /* Permute left face. */
+          PermuteFace(4, 1);
+        }
+        /* Rotate cube twice around x-axis. */
+        else if (direction == 2)
+        {
+          /* Rotate top face to bottom face. */
+          /* Rotate front face to back face. */
+          /* Rotate bottom face to top face. */
+          /* Rotate back face to front face. */
+          /* Permute right face. */
+          /* Permute left face. */
+        }
+        else
+          std::cout << "Error: incorrect direction specified in RotateCube!" << std::endl;
+        break;
+      }
+
+    case 2 :
+      {
+        if (direction == 1)
+        {
+        }
+        else if (direction == -1)
+        {
+        }
+        else if (direction == 2)
+        {
+        }
+        else
+          std::cout << "Error: incorrect direction specified in RotateCube!" << std::endl;
+        break;
+      }
+
+    case 3 :
+
+      {
+        if (direction == 1)
+        {
+        }
+        else if (direction == -1)
+        {
+        }
+        else if (direction == 2)
+        {
+        }
+        else
+          std::cout << "Error: incorrect direction specified in RotateCube!" << std::endl;
+        break;
+      }
+    default:
+      std::cout << "Error: incorrect axis passed to RotateCube..." << std::endl;
+  }
+}
+
 void Cube::RotateFace(const int faceID, const int direction)
 {
   /* This array contains the indices into the state array that correspond to
