@@ -62,6 +62,39 @@ void Cube::ResetCube()
   return;
 }
 
+void Cube::PermuteFace(const int faceID, const int direction)
+{
+
+  if ( faceID < 0 || faceID > 5 ) {
+    std::cout << "Error: incorrect faceID passed to RotateFace..." << std::endl;
+    return;
+  }
+
+  if ( direction == 1 )
+  {
+    /* Permute face clockwise. */
+    /* Make temporary copy of first edge. */
+    std::vector<char> tmp = std::vector<char>(state[faceID].begin() + 1, state[faceID].begin() + 3);
+    std::copy(state[faceID].begin()    , state[faceID].begin() + 1, state[faceID].begin() + 2);
+    std::copy(state[faceID].begin() + 6, state[faceID].end() - 1  , state[faceID].begin());
+    std::copy(state[faceID].begin() + 4, state[faceID].begin() + 6, state[faceID].begin() + 6);
+    std::copy(state[faceID].begin() + 3, state[faceID].begin() + 4, state[faceID].begin() + 5);
+    std::copy(tmp.begin()              , tmp.end()                , state[faceID].begin() + 3);
+  } else if ( direction == -1 )
+  {
+    /* Permute face counterclockwise. */
+    /* Make temporary copy of first edge.*/
+    std::vector<char> tmp = std::vector<char>(state[faceID].begin(), state[faceID].begin() + 2);
+    std::copy(state[faceID].begin() + 2, state[faceID].begin() + 5, state[faceID].begin());
+    std::copy(state[faceID].begin() + 5, state[faceID].begin() + 7, state[faceID].begin() + 3);
+    std::copy(state[faceID].begin() + 7, state[faceID].end() - 1  , state[faceID].begin() + 5);
+    std::copy(tmp.begin()              , tmp.end()                , state[faceID].begin() + 6);
+  } else if ( direction == 2 )
+  {
+  } else
+    std::cout << "Error: incorrect direction passed to PermuteFace..." << std::endl;
+}
+
 void Cube::RotateFace(const int faceID, const int direction)
 {
   /* This array contains the indices into the state array that correspond to

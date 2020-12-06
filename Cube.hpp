@@ -46,6 +46,28 @@ class Cube
                                                          { 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y'},
                                                          { 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'}};
 
+    /** \brief Generalized face permutation methods
+     *
+     * This method is used to permute the face cubies on the flat/front of
+     * whatever face is being rotated. I.e., this will permute all the 'up'
+     * colors during any of the u/up/uu rotations.
+     *
+     * \param[in] faceID the face identifier as follows:
+     *            * 0 = d (lower/bottom/down face)
+     *            * 1 = f (front face)
+     *            * 2 = r (right face)
+     *            * 3 = b (back face)
+     *            * 4 = l (left face)
+     *            * 5 = u (upper/top/up face)
+     *
+     * \param[in] direction [defaults to 1] direction to rotate the face as
+     *            follows:
+     *            * 1  = one rotation clockwise
+     *            * -1 = one rotation counterclockwise
+     *            * 2  = rotate face twice
+     */
+    void PermuteFace(const int faceID, const int direction);
+
     /** \brief Generalized face rotation method.
      *
      * This method generalizes the rotation of cube faces.
