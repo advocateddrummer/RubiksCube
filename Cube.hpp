@@ -162,6 +162,17 @@ class Cube
      * y/yp
      * z/zp
      */
+    /** \brief Perform a clockwise rotation of the cube about the x-axis.
+     *
+     * This method rotates the cube clockwise about the x-axis.
+     */
+    void x();
+
+    /** \brief Perform a counterclockwise rotation of the cube about the x-axis.
+     *
+     * This method rotates the cube counterclockwise about the x-axis.
+     */
+    void xp();
 
     /*
      * In all the member functions below:

@@ -719,6 +719,30 @@ void Cube::ll()
   Print();
 }
 
+/* Cube rotation methods. */
+
+void Cube::x()
+{
+  std::cout << "Performing an \'x\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'x\': " << std::endl;
+  Print();
+  RotateCube(1, 1);
+  std::cout << "\'x\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'x\': " << std::endl;
+  Print();
+}
+
+void Cube::xp()
+{
+  std::cout << "Performing an \'xp\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'xp\': " << std::endl;
+  Print();
+  RotateCube(1, -1);
+  std::cout << "\'xp\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'xp\': " << std::endl;
+  Print();
+}
+
 void Cube::Print()
 {
   std::cout << "in Cube::Print()..." << std::endl;
