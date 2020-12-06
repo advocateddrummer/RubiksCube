@@ -399,6 +399,10 @@ void Cube::RotateFace(const int faceID, const int direction)
      */
     case 13 :
       break;
+
+    default:
+      std::cout << "Error: incorrect faceID passed to RotateFace..." << std::endl;
+      break;
   }
 }
 
