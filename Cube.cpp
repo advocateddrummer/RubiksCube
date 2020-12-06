@@ -117,6 +117,7 @@ void Cube::RotateFace(const int faceID, const int direction)
             std::copy(state[*i].begin(), state[*i].begin() + 3, state[*(i - 1)].begin());
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin());
+          PermuteFace(5, 1);
         } else if (direction == -1) {
           /* Make temporary copy of first edge. */
           std::vector<char> tmp = std::vector<char>(state[index[3]].begin(), state[index[3]].begin() + 3);
@@ -125,6 +126,7 @@ void Cube::RotateFace(const int faceID, const int direction)
             std::copy(state[*i].begin(), state[*i].begin() + 3, state[*(i - 1)].begin());
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(0)].begin());
+          PermuteFace(5, -1);
         } else if (direction == 2) {
           /* Rotate upper face twice; swap front, back edges, left, right
            * edges.
@@ -155,6 +157,7 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::copy(state[index.at(3)].begin() + 2, state[index.at(3)].begin() + 5, state[index.at(2)].begin() + 4);
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin() + 2);
+          PermuteFace(1, 1);
         } else if (direction == -1) {
           /* Make temporary copy of first edge. */
           std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].begin() + 3);
@@ -169,6 +172,7 @@ void Cube::RotateFace(const int faceID, const int direction)
 
           std::copy(tmp.begin() + 2, tmp.begin() + 3, state[index.at(1)].begin());
           std::copy(tmp.begin(), tmp.begin() + 2, state[index.at(1)].begin() + 6);
+          PermuteFace(1, -1);
         } else if (direction == 2) {
           /* Rotate front face twice; swap front, back edges, left, right
            * edges.
@@ -199,6 +203,7 @@ void Cube::RotateFace(const int faceID, const int direction)
 
           std::copy(tmp.begin(), tmp.begin() + 2, state[index.at(3)].begin() + 6);
           std::copy(tmp.begin() + 2, tmp.end(), state[index.at(3)].begin());
+          PermuteFace(2, 1);
         } else if (direction == -1) {
           /* Make temporary copy of first edge. */
           std::vector<char> tmp = std::vector<char>(state[index.at(2)].begin() + 2, state[index.at(2)].begin() + 5);
@@ -211,6 +216,7 @@ void Cube::RotateFace(const int faceID, const int direction)
 
           std::copy(tmp.begin(), tmp.begin() + 2, state[index.at(3)].begin() + 6);
           std::copy(tmp.begin() + 2, tmp.end(), state[index.at(3)].begin());
+          PermuteFace(2, -1);
         } else if (direction == 2) {
           /* Rotate right face twice; swap front, back edges, left, right
            * edges.
@@ -242,6 +248,7 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::copy(state[index.at(1)].begin() + 2, state[index.at(1)].begin() + 5, state[index.at(2)].begin());
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(1)].begin() + 2);
+          PermuteFace(3, 1);
         } else if (direction == -1) {
           /* Make temporary copy of first edge. */
           std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin() + 4, state[index.at(0)].begin() + 7);
@@ -256,6 +263,7 @@ void Cube::RotateFace(const int faceID, const int direction)
 
           std::copy(tmp.begin(), tmp.begin() + 2, state[index.at(3)].begin() + 6);
           std::copy(tmp.begin() + 2, tmp.begin() + 3, state[index.at(3)].begin());
+          PermuteFace(3, -1);
         } else if (direction == 2) {
           /* Rotate back face twice; swap front, back edges, left, right
            * edges.
@@ -289,6 +297,7 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].begin() + 5, state[index.at(0)].begin());
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin() + 2);
+          PermuteFace(4, 1);
         } else if (direction == -1) {
           /* Make temporary copy of first edge. */
           std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].begin() + 1);
@@ -306,6 +315,7 @@ void Cube::RotateFace(const int faceID, const int direction)
 
           std::copy(tmp.begin(), tmp.begin() + 1, state[index.at(3)].begin() + 4);
           std::copy(tmp.begin() + 1, tmp.end(), state[index.at(3)].begin() + 2);
+          PermuteFace(4, -1);
         } else if (direction == 2) {
           /* Rotate left face twice; swap front, back edges, left, right edges. */
           std::swap_ranges(state[index.at(0)].begin(), state[index.at(0)].begin() + 1, state[index.at(2)].begin());
@@ -331,6 +341,7 @@ void Cube::RotateFace(const int faceID, const int direction)
             std::copy(state[*i].begin() + 4, state[*i].begin() + 7, state[*i + 1].begin() + 4);
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(0)].begin() + 4);
+          PermuteFace(0, 1);
         } else if (direction == -1) {
           /* Make temporary copy of first edge. */
           std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin() + 4, state[index.at(0)].begin() + 7);
@@ -339,6 +350,7 @@ void Cube::RotateFace(const int faceID, const int direction)
             std::copy(state[*i].begin() + 4, state[*i].begin() + 7, state[*i - 1].begin() + 4);
 
           std::copy(tmp.begin(), tmp.begin() + 3, state[index.at(3)].begin() + 4);
+          PermuteFace(0, -1);
         } else if (direction == 2) {
           /* Rotate bottom/down face twice; swap front, back edges, left, right
            * edges.
