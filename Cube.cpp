@@ -97,35 +97,32 @@ void Cube::PermuteFace(const int faceID, const int direction)
 
 void Cube::RotateCube(const int axis, const int direction)
 {
-  /* This array contains the indices into the state array that correspond to
-   * the faces required for x-axis cube rotations (indices[0]), y-axis cube
-   * rotations (indices[1]), and z-axis cube rotations (indices[2]).
-   */
-  const std::vector<std::vector<int>> indices = { {5, 1, 0, 3}, {1, 2, 3, 4}, {5, 2, 0, 4} };
 
   switch (axis) {
     /* Rotate cube around x-axis. */
     case 1 :
       {
-        const std::vector<int> index = indices[0];
-
         /* Rotate cube clockwise around x-axis. */
         if (direction == 1)
         {
           /* Make temporary copy of top face. */
-          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].end());
+          std::vector<char> tmp = std::vector<char>(state[5].begin(), state[5].end());
+
           /* Rotate front face to top face. */
-          std::copy(state[index.at(1)].begin(), state[index.at(1)].end(), state[index.at(0)].begin());
+          std::copy(state[1].begin(), state[1].end(), state[5].begin());
+
           /* Rotate bottom face to front face. */
-          std::copy(state[index.at(2)].begin(), state[index.at(2)].end(), state[index.at(1)].begin());
+          std::copy(state[0].begin(), state[0].end(), state[1].begin());
+
           /* Rotate back face to bottom face. */
-          std::copy(state[index.at(3)].begin(), state[index.at(3)].begin() + 4, state[index.at(2)].begin() + 4);
-          std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].end() - 1, state[index.at(2)].begin());
-          std::copy(state[index.at(3)].end() - 1, state[index.at(3)].end(), state[index.at(2)].end() - 1);
+          std::copy(state[3].begin()    , state[3].begin() + 4, state[0].begin() + 4);
+          std::copy(state[3].begin() + 4, state[3].end() - 1  , state[0].begin());
+          std::copy(state[3].end() - 1  , state[3].end()      , state[0].end() - 1);
+
           /* Rotate top face to back face. */
-          std::copy(tmp.begin(), tmp.begin() + 4, state[index.at(3)].begin() + 4);
-          std::copy(tmp.begin() + 4, tmp.end() - 1, state[index.at(3)].begin());
-          std::copy(tmp.end() - 1, tmp.end(), state[index.at(3)].end() - 1);
+          std::copy(tmp.begin()    , tmp.begin() + 4, state[3].begin() + 4);
+          std::copy(tmp.begin() + 4, tmp.end() - 1  , state[3].begin());
+          std::copy(tmp.end() - 1  , tmp.end()      , state[3].end() - 1);
 
           /* Permute right face. */
           PermuteFace(2, 1);
@@ -137,19 +134,23 @@ void Cube::RotateCube(const int axis, const int direction)
         else if (direction == -1)
         {
           /* Make temporary copy of top face. */
-          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].end());
+          std::vector<char> tmp = std::vector<char>(state[5].begin(), state[5].end());
+
           /* Rotate back face to top face. */
-          std::copy(state[index.at(3)].begin(), state[index.at(3)].begin() + 4, state[index.at(0)].begin() + 4);
-          std::copy(state[index.at(3)].begin() + 4, state[index.at(3)].end() - 1, state[index.at(0)].begin());
-          std::copy(state[index.at(3)].end() - 1, state[index.at(3)].end(), state[index.at(0)].end() - 1);
+          std::copy(state[3].begin()    , state[3].begin() + 4, state[5].begin() + 4);
+          std::copy(state[3].begin() + 4, state[3].end() - 1  , state[5].begin());
+          std::copy(state[3].end() - 1  , state[3].end()      , state[5].end() - 1);
+
           /* Rotate bottom face to back face. */
-          std::copy(state[index.at(2)].begin(), state[index.at(2)].begin() + 4, state[index.at(3)].begin() + 4);
-          std::copy(state[index.at(2)].begin() + 4, state[index.at(2)].end() - 1, state[index.at(3)].begin());
-          std::copy(state[index.at(2)].end() - 1, state[index.at(2)].end(), state[index.at(3)].end() - 1);
+          std::copy(state[0].begin()    , state[0].begin() + 4, state[3].begin() + 4);
+          std::copy(state[0].begin() + 4, state[0].end() - 1  , state[3].begin());
+          std::copy(state[0].end() - 1  , state[0].end()      , state[3].end() - 1);
+
           /* Rotate front face to bottom face. */
-          std::copy(state[index.at(1)].begin(), state[index.at(1)].end(), state[index.at(2)].begin());
+          std::copy(state[1].begin(), state[1].end(), state[0].begin());
+
           /* Rotate top face to front face. */
-          std::copy(tmp.begin(), tmp.end(), state[index.at(1)].begin());
+          std::copy(tmp.begin(), tmp.end(), state[1].begin());
 
           /* Permute right face. */
           PermuteFace(2, -1);
@@ -175,19 +176,18 @@ void Cube::RotateCube(const int axis, const int direction)
     /* Rotate cube around y-axis. */
     case 2 :
       {
-        const std::vector<int> index = indices[1];
-
         /* Rotate cube clockwise around y-axis. */
         if (direction == 1)
         {
           /* Make temporary copy of front face. */
-          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].end());
+          std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].end());
+
           /* Rotate right face to front face, back to right, and left to back. */
-          for ( auto i = index.begin() + 1; i != index.end(); i++ )
-            std::copy(state[*i].begin(), state[*i].end(), state[*(i - 1)].begin());
+          for ( auto & i : {2, 3, 4} )
+            std::copy(state[i].begin(), state[i].end(), state[i - 1].begin());
 
           /* Rotate front face to left face. */
-          std::copy(tmp.begin(), tmp.end(), state[index.at(3)].begin());
+          std::copy(tmp.begin(), tmp.end(), state[4].begin());
 
           /* Permute bottom/down face. */
           PermuteFace(0, -1);
@@ -199,13 +199,14 @@ void Cube::RotateCube(const int axis, const int direction)
         else if (direction == -1)
         {
           /* Make temporary copy of left face. */
-          std::vector<char> tmp = std::vector<char>(state[index.at(3)].begin(), state[index.at(3)].end());
+          std::vector<char> tmp = std::vector<char>(state[4].begin(), state[4].end());
+
           /* Rotate back face to left face, right to back, and front to right. */
-          for ( auto i = index.rbegin() + 1; i != index.rend(); i++ )
-            std::copy(state[*i].begin(), state[*i].end(), state[*(i - 1)].begin());
+          for ( auto & i : {3, 2, 1} )
+            std::copy(state[i].begin(), state[i].end(), state[i + 1].begin());
 
           /* Rotate left face to front face. */
-          std::copy(tmp.begin(), tmp.end(), state[index.at(0)].begin());
+          std::copy(tmp.begin(), tmp.end(), state[1].begin());
 
           /* Permute bottom/down face. */
           PermuteFace(0, 1);
