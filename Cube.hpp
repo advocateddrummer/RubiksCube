@@ -174,6 +174,18 @@ class Cube
      */
     void xp();
 
+    /** \brief Perform a clockwise rotation of the cube about the y-axis.
+     *
+     * This method rotates the cube clockwise about the y-axis.
+     */
+    void y();
+
+    /** \brief Perform a counterclockwise rotation of the cube about the y-axis.
+     *
+     * This method rotates the cube counterclockwise about the y-axis.
+     */
+    void yp();
+
     /*
      * In all the member functions below:
      * u/U stands for the 'up' face

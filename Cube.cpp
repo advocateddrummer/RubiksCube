@@ -172,13 +172,46 @@ void Cube::RotateCube(const int axis, const int direction)
         break;
       }
 
+    /* Rotate cube around y-axis. */
     case 2 :
       {
+        const std::vector<int> index = indices[1];
+
+        /* Rotate cube clockwise around y-axis. */
         if (direction == 1)
         {
+          /* Make temporary copy of front face. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(0)].begin(), state[index.at(0)].end());
+          /* Rotate right face to front face, back to right, and left to back. */
+          for ( auto i = index.begin() + 1; i != index.end(); i++ )
+            std::copy(state[*i].begin(), state[*i].end(), state[*(i - 1)].begin());
+
+          /* Rotate front face to left face. */
+          std::copy(tmp.begin(), tmp.end(), state[index.at(3)].begin());
+
+          /* Permute bottom/down face. */
+          PermuteFace(0, -1);
+
+          /* Permute top/up face. */
+          PermuteFace(5, 1);
         }
+        /* Rotate cube counterclockwise around y-axis. */
         else if (direction == -1)
         {
+          /* Make temporary copy of left face. */
+          std::vector<char> tmp = std::vector<char>(state[index.at(3)].begin(), state[index.at(3)].end());
+          /* Rotate back face to left face, right to back, and front to right. */
+          for ( auto i = index.rbegin() + 1; i != index.rend(); i++ )
+            std::copy(state[*i].begin(), state[*i].end(), state[*(i - 1)].begin());
+
+          /* Rotate left face to front face. */
+          std::copy(tmp.begin(), tmp.end(), state[index.at(0)].begin());
+
+          /* Permute bottom/down face. */
+          PermuteFace(0, 1);
+
+          /* Permute top/up face. */
+          PermuteFace(5, -1);
         }
         else if (direction == 2)
         {
@@ -740,6 +773,28 @@ void Cube::xp()
   RotateCube(1, -1);
   std::cout << "\'xp\' cube rotation complete" << std::endl;
   std::cout << "Cube state after \'xp\': " << std::endl;
+  Print();
+}
+
+void Cube::y()
+{
+  std::cout << "Performing an \'y\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'y\': " << std::endl;
+  Print();
+  RotateCube(2, 1);
+  std::cout << "\'y\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'y\': " << std::endl;
+  Print();
+}
+
+void Cube::yp()
+{
+  std::cout << "Performing an \'yp\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'yp\': " << std::endl;
+  Print();
+  RotateCube(2, -1);
+  std::cout << "\'yp\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'yp\': " << std::endl;
   Print();
 }
 
