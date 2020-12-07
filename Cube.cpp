@@ -183,7 +183,7 @@ void Cube::RotateCube(const int axis, const int direction)
           std::vector<char> tmp = std::vector<char>(state[1].begin(), state[1].end());
 
           /* Rotate right face to front face, back to right, and left to back. */
-          for ( auto & i : {2, 3, 4} )
+          for ( auto i : {2, 3, 4} )
             std::copy(state[i].begin(), state[i].end(), state[i - 1].begin());
 
           /* Rotate front face to left face. */
@@ -202,7 +202,7 @@ void Cube::RotateCube(const int axis, const int direction)
           std::vector<char> tmp = std::vector<char>(state[4].begin(), state[4].end());
 
           /* Rotate back face to left face, right to back, and front to right. */
-          for ( auto & i : {3, 2, 1} )
+          for ( auto i : {3, 2, 1} )
             std::copy(state[i].begin(), state[i].end(), state[i + 1].begin());
 
           /* Rotate left face to front face. */
@@ -495,7 +495,6 @@ void Cube::RotateFace(const int faceID, const int direction)
           tmp.push_back(state[0].at(0));
 
           /* Rotate left face clockwise. */
-          //for ( auto i = index.rbegin() + 2; i != index.rend(); i++ ) {
           std::copy(state[1].begin()    , state[1].begin() + 1, state[0].begin());
           std::copy(state[1].begin() + 6, state[1].begin() + 8, state[0].begin() + 6);
 
@@ -515,7 +514,6 @@ void Cube::RotateFace(const int faceID, const int direction)
           tmp.push_back(state[5].at(7));
 
           /* Rotate left face counterclockwise. */
-          //for ( auto i = index.begin() + 1; i != index.end() - 1; i++ ) {
           std::copy(state[1].begin()    , state[1].begin() + 1, state[5].begin());
           std::copy(state[1].begin() + 6, state[1].begin() + 8, state[5].begin() + 6);
 
