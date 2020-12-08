@@ -136,6 +136,15 @@ class Cube
      */
     bool operator==(const Cube& rhs) const;
 
+    /** \brief Scramble the cube state
+     * This method performs a random of the cube state.
+     *
+     * \param[in] nMoves [defaults to 25] number of moves to use to scramble
+     * the cube state.
+     *
+     */
+    void RandomScramble(const int nMoves = 25);
+
     /** \brief Print cube state.
      * This method simply prints out the current cube state, as represented by
      * the internal 'state' vector variable.

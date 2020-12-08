@@ -1,4 +1,5 @@
 #include <iostream>
+#include <random>
 #include <algorithm>
 #include "Cube.hpp"
 
@@ -144,6 +145,36 @@ bool Cube::operator==(const Cube & rhs) const
         return false;
 
   return true;
+}
+
+void Cube::RandomScramble(const int nMoves)
+{
+  /* Vector of all _planned_ possible face/cube rotations; once all planned
+   * methods are implemented, this vector should be used.
+   */
+  //const std::vector<string> moveMap{"x", "xp", "xx", "y", "yp", "yy", "z", "zp", "zz", "u", "up", "uu", "U", "Up", "UU", "f", "fp", "ff", "F", "Fp", "FF", "r", "rp", "rr", "R", "Rp", "RR", "b", "bp", "bb", "B", "Bp", "BB", "l", "lp", "ll", "L", "Lp", "LL", "d", "dp", "dd", "D", "Dp", "DD", "m", "mp", "mm"};
+
+  /* Vector of currently possible face/cube rotations. */
+  const std::vector<std::string> moveMap{"x", "xp", "xx", "y", "yp", "yy", "z", "zp", "zz", "u", "up", "uu", "f", "fp", "ff", "r", "rp", "rr", "b", "bp", "bb", "l", "lp", "ll", "d", "dp", "dd"};
+  const std::vector<void(Cube::*)()> moves{&Cube::x, &Cube::xp, &Cube::xx, &Cube::y, &Cube::yp, &Cube::yy, &Cube::z, &Cube::zp, &Cube::zz, &Cube::u, &Cube::up, &Cube::uu, &Cube::f, &Cube::fp, &Cube::ff, &Cube::r, &Cube::rp, &Cube::rr, &Cube::b, &Cube::bp, &Cube::bb, &Cube::l, &Cube::lp, &Cube::ll, &Cube::d, &Cube::dp, &Cube::dd};
+
+  /* Got this clever, consise logic from here:
+   * https://cpppatterns.com/patterns/choose-random-element.html
+   */
+  std::random_device random_device;
+  std::mt19937 engine{random_device()};
+  std::uniform_int_distribution<int> dist(0, moves.size() - 1);
+
+  int index{-1};
+
+  for ( int i = 0; i < nMoves; i++ ) {
+    index = dist(engine);
+    //std::cout << "In Cube::RandomScramble[" << index << "]..., calling " << moveMap[index] << "...\n";
+    (this->*moves[index])();
+    //std::cout << "In Cube::RandomScramble..., Done\n";
+  }
+
+  return;
 }
 
 int Cube::IsSolved()
