@@ -140,7 +140,7 @@ class Cube
      * This method simply prints out the current cube state, as represented by
      * the internal 'state' vector variable.
      */
-    void Print();
+    void Print() const;
 
     /** \brief Reset cube state
      * This method resets the cube state to the solved state.

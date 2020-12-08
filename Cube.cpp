@@ -887,7 +887,7 @@ void Cube::zp()
   Print();
 }
 
-void Cube::Print()
+void Cube::Print() const
 {
   std::cout << "in Cube::Print()..." << std::endl;
 
