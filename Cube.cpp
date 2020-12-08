@@ -275,6 +275,9 @@ void Cube::RotateCube(const int axis, const int direction)
         /* Rotate cube twice around x-axis. */
         else if (direction == 2)
         {
+          /* TODO: actually implement this logic instead of doing two single
+           * rotations.
+           */
           /* Rotate top face to bottom face. */
           /* Rotate front face to back face. */
           /* Rotate bottom face to top face. */
@@ -330,6 +333,9 @@ void Cube::RotateCube(const int axis, const int direction)
         }
         else if (direction == 2)
         {
+          /* TODO: actually implement this logic instead of doing two single
+           * rotations.
+           */
         }
         else
           std::cout << "Error: incorrect direction specified in RotateCube!" << std::endl;
@@ -406,6 +412,9 @@ void Cube::RotateCube(const int axis, const int direction)
         }
         else if (direction == 2)
         {
+          /* TODO: actually implement this logic instead of doing two single
+           * rotations.
+           */
         }
         else
           std::cout << "Error: incorrect direction specified in RotateCube!" << std::endl;
@@ -691,36 +700,43 @@ void Cube::RotateFace(const int faceID, const int direction)
         break;
       }
       break;
+
     /* This case handles all upper/top face rotations that also include the
      * middle/adjacent layer.
      */
     case 7 :
       break;
+
     /* This case handles all front face rotations that also include the
      * middle/adjacent layer.
      */
     case 8 :
       break;
+
     /* This case handles all right face rotations that also include the
      * middle/adjacent layer.
      */
     case 9 :
       break;
+
     /* This case handles all back face rotations that also include the
      * middle/adjacent layer.
      */
     case 10 :
       break;
+
     /* This case handles all left face rotations that also include the
      * middle/adjacent layer.
      */
     case 11 :
       break;
+
     /* This case handles all lower/down/bottom face rotations that also include
      * the middle/adjacent layer.
      */
     case 12 :
       break;
+
     /* This case handles all middle layer rotations. Currently, this is only
      * the _vertical_ middle layer as I am not sure that the horizontal layer
      * will ever need to be rotated.
