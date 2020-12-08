@@ -24,9 +24,123 @@ void Cube::operator=(const Cube & rhs)
 
 bool Cube::operator==(const Cube & rhs) const
 {
+  /* Make copy of rhs and manipulate it so that it matches the orientation of
+   * the lhs/self cube to facilitate easier comparison.
+   */
+  Cube tmp = rhs;
+
+  int map{-1};
+
+  /* Find side on temporary copy of rhs that matches the color on the first
+   * (bottom/down) side of the lhs/self cube.
+   */
+  for ( int i = 0; i < 6; i++ ) {
+    if ( tmp.state[i][8] == state[0][8] ) {
+      map = i;
+      //std::cout << "map: " << map << " -> 0" << std::endl;
+      break;
+    }
+  }
+
+  /* Rotate temporary cube so that its bottom/down center matches the lhs/self
+   * cube.
+   */
+  switch ( map ) {
+    /* Both faces already align. */
+    case 0 :
+      break;
+    case 1 :
+      {
+        /* Rotate tmp counterclockwise about the x-axis. */
+        tmp.RotateCube(1, -1);
+        break;
+      }
+    case 2 :
+      {
+        /* Rotate tmp clockwise about the z-axis. */
+        tmp.RotateCube(3, 1);
+        break;
+      }
+    case 3 :
+      {
+        /* Rotate tmp clockwise about the x-axis. */
+        tmp.RotateCube(1, 1);
+        break;
+      }
+    case 4 :
+      {
+        /* Rotate tmp counterclockwise about the z-axis. */
+        tmp.RotateCube(3, -1);
+        break;
+      }
+    case 5 :
+      {
+        /* Rotate tmp twice about the x-axis, but the z-axis would work too. */
+        tmp.RotateCube(1, 1);
+        tmp.RotateCube(1, 1);
+        break;
+      }
+    default :
+      {
+        std::cout << "Error: incorrect index in equality overload..." << std::endl;
+        break;
+      }
+  }
+
+
+  /* Find side on temporary copy of rhs that matches the color on the front
+   * side of the lhs/self cube.
+   */
+  map = -1;
+  for ( int i = 0; i < 6; i++ ) {
+    if ( tmp.state[i][8] == state[1][8] ) {
+      map = i;
+      //std::cout << "map: " << map << " -> 1" << std::endl;
+      break;
+    }
+  }
+
+  /* Rotate temporary cube so that its front center matches the front center of
+   * the lhs/self cube.
+   */
+  switch ( map ) {
+    /* These should not happen; fall through to default. */
+    case 0 :
+    case 5 :
+    /* Both faces already align. */
+    case 1 :
+        break;
+    case 2 :
+      {
+        /* Rotate tmp clockwise about the y-axis. */
+        tmp.RotateCube(2, 1);
+        break;
+      }
+    case 3 :
+      {
+        /* Rotate tmp twice about the y-axis. */
+        tmp.RotateCube(2, 1);
+        tmp.RotateCube(2, 1);
+        break;
+      }
+    case 4 :
+      {
+        /* Rotate tmp counterclockwise about the y-axis. */
+        tmp.RotateCube(2, -1);
+        break;
+      }
+    default :
+      {
+        std::cout << "Error: incorrect index in equality overload..." << std::endl;
+        break;
+      }
+  }
+
+
+  /* Perform comparison now that tmp is properly oriented. */
   for ( int i = 0; i < 6; i++ )
     for ( int j = 0; j < 9; j++ )
-      if ( state[i][j] != rhs.state[i][j] )
+      if ( state[i][j] != tmp.state[i][j] )
         return false;
 
   return true;
