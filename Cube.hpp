@@ -174,6 +174,12 @@ class Cube
      */
     void xp();
 
+    /** \brief Perform a double rotation of the cube about the x-axis.
+     *
+     * This method rotates the cube twice about the x-axis.
+     */
+    void xx();
+
     /** \brief Perform a clockwise rotation of the cube about the y-axis.
      *
      * This method rotates the cube clockwise about the y-axis.
@@ -186,6 +192,12 @@ class Cube
      */
     void yp();
 
+    /** \brief Perform a double rotation of the cube about the y-axis.
+     *
+     * This method rotates the cube twice about the y-axis.
+     */
+    void yy();
+
     /** \brief Perform a clockwise rotation of the cube about the z-axis.
      *
      * This method rotates the cube clockwise about the z-axis.
@@ -197,6 +209,12 @@ class Cube
      * This method rotates the cube counterclockwise about the z-axis.
      */
     void zp();
+
+    /** \brief Perform a double rotation of the cube about the z-axis.
+     *
+     * This method rotates the cube twice about the z-axis.
+     */
+    void zz();
 
     /*
      * In all the member functions below:

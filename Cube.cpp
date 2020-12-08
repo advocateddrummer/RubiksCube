@@ -957,6 +957,19 @@ void Cube::xp()
   Print();
 }
 
+void Cube::xx()
+{
+  std::cout << "Performing an \'xx\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'xx\': " << std::endl;
+  Print();
+  /* For now, just perform two clockwise rotations. */
+  RotateCube(1, 1);
+  RotateCube(1, 1);
+  std::cout << "\'xx\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'xx\': " << std::endl;
+  Print();
+}
+
 void Cube::y()
 {
   std::cout << "Performing an \'y\' cube rotation..." << std::endl;
@@ -979,6 +992,19 @@ void Cube::yp()
   Print();
 }
 
+void Cube::yy()
+{
+  std::cout << "Performing an \'yy\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'yy\': " << std::endl;
+  Print();
+  /* For now, just perform two clockwise rotations. */
+  RotateCube(2, 1);
+  RotateCube(2, 1);
+  std::cout << "\'yy\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'yy\': " << std::endl;
+  Print();
+}
+
 void Cube::z()
 {
   std::cout << "Performing an \'z\' cube rotation..." << std::endl;
@@ -998,6 +1024,19 @@ void Cube::zp()
   RotateCube(3, -1);
   std::cout << "\'zp\' cube rotation complete" << std::endl;
   std::cout << "Cube state after \'zp\': " << std::endl;
+  Print();
+}
+
+void Cube::zz()
+{
+  std::cout << "Performing an \'zz\' cube rotation..." << std::endl;
+  std::cout << "Cube state before \'zz\': " << std::endl;
+  Print();
+  /* For now, just perform two clockwise rotations. */
+  RotateCube(3, 1);
+  RotateCube(3, 1);
+  std::cout << "\'zz\' cube rotation complete" << std::endl;
+  std::cout << "Cube state after \'zz\': " << std::endl;
   Print();
 }
 
