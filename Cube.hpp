@@ -85,7 +85,7 @@ class Cube
      *            * 10 = B (back and middle faces)
      *            * 11 = L (left and middle faces)
      *            * 12 = D (lower/bottom/down and middle faces)
-     *            * 13 = m (middle face)
+     *            * 13 = mv (middle vertical face)
      * \param[in] direction [defaults to 1] direction to rotate the face as
      *            follows:
      *            * 1  = one rotation clockwise
@@ -413,4 +413,28 @@ class Cube
     void D();
     void Dp();
     void DD();
+
+    /********************************************************************/
+    /*********************** Middle slice methods ***********************/
+    /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the vertical middle (m) face.
+     *
+     * This method rotates the vertical middle face clockwise.
+     */
+    void mv();
+
+    /** \brief Perform a counterclockwise rotation of the vertical middle (m) face.
+     *
+     * This method rotates the vertical middle face counterclockwise.
+     */
+    void mpv();
+
+    /** \brief Perform a double rotation of the virtual middle (m) face.
+     *
+     * This method rotates the vertical middle face twice; the direction in
+     * this case does not matter as both a double clockwise or counterclockwise
+     * rotation results in the same state.
+     */
+    void mmv();
 };

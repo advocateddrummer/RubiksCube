@@ -765,11 +765,90 @@ void Cube::RotateFace(const int faceID, const int direction)
     case 12 :
       break;
 
-    /* This case handles all middle layer rotations. Currently, this is only
-     * the _vertical_ middle layer as I am not sure that the horizontal layer
-     * will ever need to be rotated.
-     */
+    /* This case handles all vertical middle layer rotations. */
     case 13 :
+      {
+        if (direction == 1) {
+          /* Rotate vertical middle face clockwise (from the perspective of the
+           * right face.)
+           */
+
+          /* Make temporary copy of first edge (on top/up face). */
+          std::vector<char> tmp = std::vector<char>(state[5].begin() + 1, state[5].begin() + 2);
+          tmp.push_back(state[5][5]);
+          tmp.push_back(state[5][8]);
+
+          /* Rotate front slice to top/up face. */
+          state[5][1] = state[1][1];
+          state[5][5] = state[1][5];
+          state[5][8] = state[1][8];
+
+          /* Rotate bottom/down slice to front face. */
+          state[1][1] = state[0][1];
+          state[1][5] = state[0][5];
+          state[1][8] = state[0][8];
+
+          /* Rotate back slice to bottom/down face. */
+          state[0][1] = state[3][5];
+          state[0][5] = state[3][1];
+          state[0][8] = state[3][8];
+
+          /* Rotate top/up slice to back face. */
+          state[3][5] = tmp[0];
+          state[3][1] = tmp[1];
+          state[3][8] = tmp[2];
+
+        } else if (direction == -1) {
+          /* Rotate vertical middle face counterclockwise (from the perspective
+           * of the right face.)
+           */
+
+          /* Make temporary copy of first edge (on top/up face). */
+          std::vector<char> tmp = std::vector<char>(state[5].begin() + 1, state[5].begin() + 2);
+          tmp.push_back(state[5][5]);
+          tmp.push_back(state[5][8]);
+
+          /* Rotate back slice to top/up face. */
+          state[5][1] = state[3][5];
+          state[5][5] = state[3][1];
+          state[5][8] = state[3][8];
+
+          /* Rotate bottom/down slice to back face. */
+          state[3][5] = state[0][1];
+          state[3][1] = state[0][5];
+          state[3][8] = state[0][8];
+
+          /* Rotate front slice to bottom/down face. */
+          state[0][1] = state[1][1];
+          state[0][5] = state[1][5];
+          state[0][8] = state[1][8];
+
+          /* Rotate top/up slice to front face. */
+          state[1][1] = tmp[0];
+          state[1][5] = tmp[1];
+          state[1][8] = tmp[2];
+
+        } else if (direction == 2) {
+          /* Rotate vertical middle face twice. */
+
+          /* Swap values between top/up and bottom/down faces. */
+          std::swap(state[5][1], state[0][1]);
+          std::swap(state[5][5], state[0][5]);
+          std::swap(state[5][8], state[0][8]);
+
+          /* Swap values between front and back faces. */
+          std::swap(state[1][1], state[3][5]);
+          std::swap(state[1][5], state[3][1]);
+          std::swap(state[1][8], state[3][8]);
+
+        } else {
+          std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
+        }
+        break;
+      }
+
+    /* This case handles all horizontal middle layer rotations. */
+    case 14 :
       break;
 
     default:
@@ -974,6 +1053,39 @@ void Cube::ll()
   RotateFace(5, 2);
   std::cout << "\'ll\' rotation complete" << std::endl;
   std::cout << "Cube state after \'ll\': " << std::endl;
+  Print();
+}
+
+void Cube::mv()
+{
+  std::cout << "Performing a \'mv\' rotation..." << std::endl;
+  std::cout << "Cube state before \'mv\': " << std::endl;
+  Print();
+  RotateFace(13, 1);
+  std::cout << "\'mv\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'mv\': " << std::endl;
+  Print();
+}
+
+void Cube::mpv()
+{
+  std::cout << "Performing a \'mpv\' rotation..." << std::endl;
+  std::cout << "Cube state before \'mpv\': " << std::endl;
+  Print();
+  RotateFace(13, -1);
+  std::cout << "\'mpv\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'mpv\': " << std::endl;
+  Print();
+}
+
+void Cube::mmv()
+{
+  std::cout << "Performing a \'mmv\' rotation..." << std::endl;
+  std::cout << "Cube state before \'mmv\': " << std::endl;
+  Print();
+  RotateFace(13, 2);
+  std::cout << "\'mmv\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'mmv\': " << std::endl;
   Print();
 }
 
