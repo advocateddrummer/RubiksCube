@@ -849,7 +849,68 @@ void Cube::RotateFace(const int faceID, const int direction)
 
     /* This case handles all horizontal middle layer rotations. */
     case 14 :
-      break;
+      {
+        if (direction == 1) {
+          /* Rotate horizontal middle slice clockwise (from the perspective of
+           * the top face.)
+           */
+
+          /* Make temporary copy of first edge (on front face). */
+          std::vector<char> tmp = std::vector<char>(state[1].begin() + 3, state[1].begin() + 4);
+          tmp.push_back(state[1][7]);
+          tmp.push_back(state[1][8]);
+
+          /* Rotate right slice to front, back to right, and left to back. */
+          for ( auto i : {2, 3, 4} ) {
+            state[i - 1][3] = state[i][3];
+            state[i - 1][7] = state[i][7];
+            state[i - 1][8] = state[i][8];
+          }
+
+          /* Rotate front slice to left face. */
+          state[4][3] = tmp[0];
+          state[4][7] = tmp[1];
+          state[4][8] = tmp[2];
+
+        } else if (direction == -1) {
+          /* Rotate horizontal middle slice counterclockwise (from the
+           * perspective of the top face.)
+           */
+
+          /* Make temporary copy of first edge (on left face). */
+          std::vector<char> tmp = std::vector<char>(state[4].begin() + 3, state[4].begin() + 4);
+          tmp.push_back(state[4][7]);
+          tmp.push_back(state[4][8]);
+
+          /* Rotate back to left, right to back, and front slice to right. */
+          for ( auto i : {3, 2, 1} ) {
+            state[i + 1][3] = state[i][3];
+            state[i + 1][7] = state[i][7];
+            state[i + 1][8] = state[i][8];
+          }
+
+          /* Rotate left slice to front face. */
+          state[1][3] = tmp[0];
+          state[1][7] = tmp[1];
+          state[1][8] = tmp[2];
+        } else if (direction == 2) {
+          /* Rotate horizontal middle slice twice. */
+
+          /* Swap values between right and left faces. */
+          std::swap(state[2][3], state[4][3]);
+          std::swap(state[2][7], state[4][7]);
+          std::swap(state[2][8], state[4][8]);
+
+          /* Swap values between front and back faces. */
+          std::swap(state[1][3], state[3][3]);
+          std::swap(state[1][7], state[3][7]);
+          std::swap(state[1][8], state[3][8]);
+
+        } else {
+          std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
+        }
+        break;
+      }
 
     default:
       std::cout << "Error: incorrect faceID passed to RotateFace..." << std::endl;
@@ -1086,6 +1147,39 @@ void Cube::mmv()
   RotateFace(13, 2);
   std::cout << "\'mmv\' rotation complete" << std::endl;
   std::cout << "Cube state after \'mmv\': " << std::endl;
+  Print();
+}
+
+void Cube::mh()
+{
+  std::cout << "Performing a \'mh\' rotation..." << std::endl;
+  std::cout << "Cube state before \'mh\': " << std::endl;
+  Print();
+  RotateFace(14, 1);
+  std::cout << "\'mh\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'mh\': " << std::endl;
+  Print();
+}
+
+void Cube::mph()
+{
+  std::cout << "Performing a \'mph\' rotation..." << std::endl;
+  std::cout << "Cube state before \'mph\': " << std::endl;
+  Print();
+  RotateFace(14, -1);
+  std::cout << "\'mph\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'mph\': " << std::endl;
+  Print();
+}
+
+void Cube::mmh()
+{
+  std::cout << "Performing a \'mmh\' rotation..." << std::endl;
+  std::cout << "Cube state before \'mmh\': " << std::endl;
+  Print();
+  RotateFace(14, 2);
+  std::cout << "\'mmh\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'mmh\': " << std::endl;
   Print();
 }
 

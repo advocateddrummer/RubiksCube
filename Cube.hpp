@@ -86,6 +86,7 @@ class Cube
      *            * 11 = L (left and middle faces)
      *            * 12 = D (lower/bottom/down and middle faces)
      *            * 13 = mv (middle vertical face)
+     *            * 14 = mh (middle horizontal slice)
      * \param[in] direction [defaults to 1] direction to rotate the face as
      *            follows:
      *            * 1  = one rotation clockwise
@@ -417,6 +418,28 @@ class Cube
     /********************************************************************/
     /*********************** Middle slice methods ***********************/
     /********************************************************************/
+
+    /** \brief Perform a clockwise rotation of the horizontal middle (mh)
+     *         slice.
+     *
+     * This method rotates the horizontal middle slice clockwise.
+     */
+    void mh();
+
+    /** \brief Perform a counterclockwise rotation of the horizontal middle
+     *         (mh) slice.
+     *
+     * This method rotates the horizontal middle slice counterclockwise.
+     */
+    void mph();
+
+    /** \brief Perform a double rotation of the horizontal middle (mh) slice.
+     *
+     * This method rotates the horizontal middle slice twice; the direction in
+     * this case does not matter as both a double clockwise or counterclockwise
+     * rotation results in the same state.
+     */
+    void mmh();
 
     /** \brief Perform a clockwise rotation of the vertical middle (m) face.
      *
