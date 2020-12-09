@@ -769,8 +769,8 @@ void Cube::RotateFace(const int faceID, const int direction)
     case 13 :
       {
         if (direction == 1) {
-          /* Rotate vertical middle face clockwise (from the perspective of the
-           * right face.)
+          /* Rotate vertical middle slice clockwise (from the perspective of
+           * the right face.)
            */
 
           /* Make temporary copy of first edge (on top/up face). */
@@ -799,8 +799,8 @@ void Cube::RotateFace(const int faceID, const int direction)
           state[3][8] = tmp[2];
 
         } else if (direction == -1) {
-          /* Rotate vertical middle face counterclockwise (from the perspective
-           * of the right face.)
+          /* Rotate vertical middle slice counterclockwise (from the
+           * perspective of the right face.)
            */
 
           /* Make temporary copy of first edge (on top/up face). */
@@ -829,7 +829,7 @@ void Cube::RotateFace(const int faceID, const int direction)
           state[1][8] = tmp[2];
 
         } else if (direction == 2) {
-          /* Rotate vertical middle face twice. */
+          /* Rotate vertical middle slice twice. */
 
           /* Swap values between top/up and bottom/down faces. */
           std::swap(state[5][1], state[0][1]);
