@@ -638,7 +638,6 @@ void Cube::RotateFace(const int faceID, const int direction)
         }
         break;
       }
-      break;
 
     /* This case handles all left face rotations. */
     case 5 :
@@ -692,7 +691,6 @@ void Cube::RotateFace(const int faceID, const int direction)
         }
         break;
       }
-      break;
 
     /* This case handles all lower/down/bottom face rotations. */
     case 6 :
@@ -730,7 +728,6 @@ void Cube::RotateFace(const int faceID, const int direction)
         }
         break;
       }
-      break;
 
     /* This case handles all upper/top face rotations that also include the
      * middle/adjacent layer.
