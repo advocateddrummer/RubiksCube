@@ -271,8 +271,29 @@ class Cube
      */
     void uu();
 
+    /** \brief Perform a clockwise rotation of the up (u) face and horizontal
+     *         middle slice (mh).
+     *
+     * This method rotates the upper face and adjacent horizontal middle slice
+     * clockwise.
+     */
     void U();
+
+    /** \brief Perform a counterclockwise rotation of the up (u) face and
+     *         horizontal middle slice (mh).
+     *
+     * This method rotates the upper face and adjacent horizontal middle slice
+     * counterclockwise.
+     */
     void Up();
+
+    /** \brief Perform a double rotation of the up (u) face and horizontal
+     *         middle slice (mh).
+     *
+     * This method rotates the upper face and  adjacent horizontal slice twice;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state.
+     */
     void UU();
 
     /********************************************************************/

@@ -733,7 +733,16 @@ void Cube::RotateFace(const int faceID, const int direction)
      * middle/adjacent layer.
      */
     case 7 :
-      break;
+      {
+        /* For now this is implemented by separately rotating both the top/up
+         * face and the adjacent horizontal middle slice which achieves the
+         * desired effect. If this is found to be less efficient, the
+         * appropriate logic may be coded here.
+         */
+        RotateFace(1, direction);
+        RotateFace(14, direction);
+        break;
+      }
 
     /* This case handles all front face rotations that also include the
      * middle/adjacent layer.
@@ -948,6 +957,39 @@ void Cube::uu()
   RotateFace(1, 2);
   std::cout << "\'uu\' rotation complete" << std::endl;
   std::cout << "Cube state after \'uu\': " << std::endl;
+  Print();
+}
+
+void Cube::U()
+{
+  std::cout << "Performing a \'U\' rotation..." << std::endl;
+  std::cout << "Cube state before \'U\': " << std::endl;
+  Print();
+  RotateFace(7, 1);
+  std::cout << "\'U\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'U\': " << std::endl;
+  Print();
+}
+
+void Cube::Up()
+{
+  std::cout << "Performing a \'Up\' rotation..." << std::endl;
+  std::cout << "Cube state before \'Up\': " << std::endl;
+  Print();
+  RotateFace(7, -1);
+  std::cout << "\'Up\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'Up\': " << std::endl;
+  Print();
+}
+
+void Cube::UU()
+{
+  std::cout << "Performing a \'UU\' rotation..." << std::endl;
+  std::cout << "Cube state before \'UU\': " << std::endl;
+  Print();
+  RotateFace(7, 2);
+  std::cout << "\'UU\' rotation complete" << std::endl;
+  std::cout << "Cube state after \'UU\': " << std::endl;
   Print();
 }
 
