@@ -72,6 +72,9 @@ class Cube
      *
      * This method generalizes the rotation of cube faces.
      *
+     * TODO: swap top and bottom (up and down) logic in this documentation to
+     * match the cube state orientation.
+     *
      * \param[in] faceID the face identifier as follows:
      *            * 1  = u (upper/top face)
      *            * 2  = f (front face)
@@ -167,12 +170,6 @@ class Cube
      */
     int IsSolved();
 
-    /*
-     * TODO: implement cube rotations a la:
-     * x/xp
-     * y/yp
-     * z/zp
-     */
     /** \brief Perform a clockwise rotation of the cube about the x-axis.
      *
      * This method rotates the cube clockwise about the x-axis.
@@ -272,8 +269,8 @@ class Cube
      */
     void uu();
 
-    /** \brief Perform a clockwise rotation of the up (u) face and horizontal
-     *         middle slice (mh).
+    /** \brief Perform a clockwise rotation of the up (u) face and adjacent
+     *         horizontal middle slice (my).
      *
      * This method rotates the upper face and adjacent horizontal middle slice
      * clockwise.
@@ -281,17 +278,17 @@ class Cube
     void U();
 
     /** \brief Perform a counterclockwise rotation of the up (u) face and
-     *         horizontal middle slice (mh).
+     *         adjacent horizontal middle slice (my).
      *
      * This method rotates the upper face and adjacent horizontal middle slice
      * counterclockwise.
      */
     void Up();
 
-    /** \brief Perform a double rotation of the up (u) face and horizontal
-     *         middle slice (mh).
+    /** \brief Perform a double rotation of the up (u) face and adjacent
+     *         horizontal middle slice (my).
      *
-     * This method rotates the upper face and  adjacent horizontal slice twice;
+     * This method rotates the upper face and adjacent horizontal slice twice;
      * the direction in this case does not matter as both a double clockwise or
      * counterclockwise rotation results in the same state.
      */
