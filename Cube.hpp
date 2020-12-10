@@ -85,8 +85,8 @@ class Cube
      *            * 10 = B (back and middle faces)
      *            * 11 = L (left and middle faces)
      *            * 12 = D (lower/bottom/down and middle faces)
-     *            * 13 = mv (middle vertical slice)
-     *            * 14 = mh (middle horizontal slice)
+     *            * 13 = mx (middle vertical slice about x-axis (in y/z plane))
+     *            * 14 = my (middle horizontal slice about y-axis (in x/z plane))
      * \param[in] direction [defaults to 1] direction to rotate the face as
      *            follows:
      *            * 1  = one rotation clockwise
@@ -440,46 +440,68 @@ class Cube
     /*********************** Middle slice methods ***********************/
     /********************************************************************/
 
-    /** \brief Perform a clockwise rotation of the horizontal middle (mh)
-     *         slice.
+    /** \brief Perform a clockwise rotation of the vertical middle slice about
+     *         the x-axis.
      *
-     * This method rotates the horizontal middle slice clockwise.
+     * This method rotates the vertical middle slice clockwise about the
+     * x-axis. This is the slice in the y/z plane that passes through the
+     * front, top/up, back, and bottom/down faces.
      */
-    void mh();
+    void mx();
+
+    /** \brief Perform a counterclockwise rotation of the vertical middle slice
+     *         about the x-axis.
+     *
+     * This method rotates the vertical middle slice counterclockwise about the
+     * x-axis. This is the slice in the y/z plane that passes through the
+     * front, top/up, back, and bottom/down faces.
+     */
+    void mxp();
+
+    /** \brief Perform a double rotation of the vertical middle slice about the
+     *         x-axis.
+     *
+     * This method rotates the vertical middle slice twice about the x-axis;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state. This is the slice
+     * in the y/z plane that passes through the front, top/up, back, and
+     * bottom/down faces.
+     */
+    void mxx();
+
+    /** \brief Perform a clockwise rotation of the horizontal middle slice
+     *         about the y-axis.
+     *
+     * This method rotates the horizontal middle slice clockwise about the
+     * y-axis. This is the slice in the x/z plane that passes through the
+     * front, right, back, and left faces.
+     */
+    void my();
 
     /** \brief Perform a counterclockwise rotation of the horizontal middle
-     *         (mh) slice.
+     *         slice about the y-axis.
      *
-     * This method rotates the horizontal middle slice counterclockwise.
+     * This method rotates the horizontal middle slice counterclockwise about
+     * the y-axis. This is the slice in the x/z plane that passes through the
+     * front, right, back, and left faces.
      */
-    void mph();
+    void myp();
 
-    /** \brief Perform a double rotation of the horizontal middle (mh) slice.
+    /** \brief Perform a double rotation of the horizontal middle slice about
+     *         the y-axis.
      *
-     * This method rotates the horizontal middle slice twice; the direction in
-     * this case does not matter as both a double clockwise or counterclockwise
-     * rotation results in the same state.
+     * This method rotates the horizontal middle slice twice. This is the slice
+     * in the x/z plane that passes through the front, right, back, and left
+     * faces. The direction in this case does not matter as both a double
+     * clockwise or counterclockwise rotation results in the same state.
      */
-    void mmh();
+    void myy();
 
-    /** \brief Perform a clockwise rotation of the vertical middle (m) slice.
+    /** \brief Perform a clockwise rotation of the vertical middle slice about
+     *         the z-axis.
      *
-     * This method rotates the vertical middle slice clockwise.
+     * This method rotates the vertical middle slice clockwise about the
+     * z-axis. This is the slice in the x/y plane that passes through the
+     * top/up, right, bottom/down, and left faces.
      */
-    void mv();
-
-    /** \brief Perform a counterclockwise rotation of the vertical middle (m)
-     *         slice.
-     *
-     * This method rotates the vertical middle slice counterclockwise.
-     */
-    void mpv();
-
-    /** \brief Perform a double rotation of the vertical middle (m) slice.
-     *
-     * This method rotates the vertical middle slice twice; the direction in
-     * this case does not matter as both a double clockwise or counterclockwise
-     * rotation results in the same state.
-     */
-    void mmv();
 };
