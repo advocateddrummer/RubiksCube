@@ -750,31 +750,92 @@ void Cube::RotateFace(const int faceID, const int direction)
      * middle/adjacent layer.
      */
     case 8 :
-      break;
+      {
+        /* For now this is implemented by separately rotating both the front
+         * face and the adjacent vertical middle slice which achieves the
+         * desired effect. If this is found to be less efficient, the
+         * appropriate logic may be coded here.
+         */
+        RotateFace(2, direction);
+        RotateFace(15, direction);
+        break;
+      }
 
     /* This case handles all right face rotations that also include the
      * middle/adjacent layer.
      */
     case 9 :
-      break;
+      {
+        /* For now this is implemented by separately rotating both the right
+         * face and the adjacent vertical middle slice which achieves the
+         * desired effect. If this is found to be less efficient, the
+         * appropriate logic may be coded here.
+         */
+        RotateFace(3, direction);
+        RotateFace(13, direction);
+        break;
+      }
 
     /* This case handles all back face rotations that also include the
      * middle/adjacent layer.
      */
     case 10 :
-      break;
+      {
+        /* For now this is implemented by separately rotating both the back
+         * face and the adjacent vertical middle slice which achieves the
+         * desired effect. If this is found to be less efficient, the
+         * appropriate logic may be coded here.
+         */
+        RotateFace(4, direction);
+
+        /* This is necessary as the back face rotates opposite to the vertical
+         * middle slice, i.e., a clockwise rotation of the back face matches a
+         * counterclockwise rotation of its adjacent middle slice.
+         */
+        RotateFace(15, ((direction != 2) ? -1*direction : direction));
+        break;
+      }
 
     /* This case handles all left face rotations that also include the
      * middle/adjacent layer.
      */
     case 11 :
-      break;
+      {
+        /* For now this is implemented by separately rotating both the left
+         * face and the adjacent vertical middle slice which achieves the
+         * desired effect. If this is found to be less efficient, the
+         * appropriate logic may be coded here.
+         */
+        RotateFace(5, direction);
+
+        /* This is necessary as the left face rotates opposite to the vertical
+         * middle slice, i.e., a clockwise rotation of the left face matches a
+         * counterclockwise rotation of its adjacent middle slice.
+         */
+        RotateFace(13, ((direction != 2) ? -1*direction : direction));
+        break;
+      }
 
     /* This case handles all lower/down/bottom face rotations that also include
      * the middle/adjacent layer.
      */
     case 12 :
-      break;
+      {
+        /* For now this is implemented by separately rotating both the
+         * bottom/down face and the adjacent horizontal middle slice which
+         * achieves the desired effect. If this is found to be less efficient,
+         * the appropriate logic may be coded here.
+         */
+        RotateFace(6, direction);
+
+        /* This is necessary as the bottom/down face rotates opposite to the
+         * horizontal middle slice, i.e., a clockwise rotation of the
+         * bottom/down face matches a counterclockwise rotation of its adjacent
+         * middle slice.
+         */
+        RotateFace(14, ((direction != 2) ? -1*direction : direction));
+        break;
+      }
 
     /* This case handles all vertical middle layer rotations about the x-axis
      * (the slice in the y/z plane).
