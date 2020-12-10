@@ -87,6 +87,7 @@ class Cube
      *            * 12 = D (lower/bottom/down and middle faces)
      *            * 13 = mx (middle vertical slice about x-axis (in y/z plane))
      *            * 14 = my (middle horizontal slice about y-axis (in x/z plane))
+     *            * 15 = mz (middle vertical slice about z-axis (in x/y plane))
      * \param[in] direction [defaults to 1] direction to rotate the face as
      *            follows:
      *            * 1  = one rotation clockwise
@@ -504,4 +505,25 @@ class Cube
      * z-axis. This is the slice in the x/y plane that passes through the
      * top/up, right, bottom/down, and left faces.
      */
+    void mz();
+
+    /** \brief Perform a counterclockwise rotation of the vertical middle slice
+     *         about the z-axis.
+     *
+     * This method rotates the vertical middle slice counterclockwise about the
+     * z-axis. This is the slice in the x/y plane that passes through the
+     * top/up, right, bottom/down, and left faces.
+     */
+    void mzp();
+
+    /** \brief Perform a double rotation of the vertical middle slice about the
+     *         z-axis.
+     *
+     * This method rotates the vertical middle slice twice about the z-axis;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state. This is the slice
+     * in the x/y plane that passes through the top/up, right, bottom/down, and
+     * left faces.
+     */
+    void mzz();
 };
