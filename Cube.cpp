@@ -1080,604 +1080,334 @@ void Cube::RotateFace(const int faceID, const int direction)
 
 void Cube::u()
 {
-  std::cout << "Performing a \'u\' rotation..." << std::endl;
-  std::cout << "Cube state before \'u\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'u\' rotation..." << std::endl;
   RotateFace(1, 1);
-  std::cout << "\'u\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'u\': " << std::endl;
-  Print();
 }
 
 void Cube::up()
 {
-  std::cout << "Performing a \'up\' rotation..." << std::endl;
-  std::cout << "Cube state before \'up\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'up\' rotation..." << std::endl;
   RotateFace(1, -1);
-  std::cout << "\'up\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'up\': " << std::endl;
-  Print();
 }
 
 void Cube::uu()
 {
-  std::cout << "Performing a \'uu\' rotation..." << std::endl;
-  std::cout << "Cube state before \'uu\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'uu\' rotation..." << std::endl;
   RotateFace(1, 2);
-  std::cout << "\'uu\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'uu\': " << std::endl;
-  Print();
 }
 
 void Cube::U()
 {
-  std::cout << "Performing a \'U\' rotation..." << std::endl;
-  std::cout << "Cube state before \'U\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'U\' rotation..." << std::endl;
   RotateFace(7, 1);
-  std::cout << "\'U\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'U\': " << std::endl;
-  Print();
 }
 
 void Cube::Up()
 {
-  std::cout << "Performing a \'Up\' rotation..." << std::endl;
-  std::cout << "Cube state before \'Up\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'Up\' rotation..." << std::endl;
   RotateFace(7, -1);
-  std::cout << "\'Up\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'Up\': " << std::endl;
-  Print();
 }
 
 void Cube::UU()
 {
-  std::cout << "Performing a \'UU\' rotation..." << std::endl;
-  std::cout << "Cube state before \'UU\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'UU\' rotation..." << std::endl;
   RotateFace(7, 2);
-  std::cout << "\'UU\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'UU\': " << std::endl;
-  Print();
 }
 
 void Cube::f()
 {
-  std::cout << "Performing a \'f\' rotation..." << std::endl;
-  std::cout << "Cube state before \'f\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'f\' rotation..." << std::endl;
   RotateFace(2, 1);
-  std::cout << "\'f\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'f\': " << std::endl;
-  Print();
 }
 
 void Cube::fp()
 {
-  std::cout << "Performing a \'fp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'fp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'fp\' rotation..." << std::endl;
   RotateFace(2, -1);
-  std::cout << "\'fp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'fp\': " << std::endl;
-  Print();
 }
 
 void Cube::ff()
 {
-  std::cout << "Performing a \'ff\' rotation..." << std::endl;
-  std::cout << "Cube state before \'ff\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'ff\' rotation..." << std::endl;
   RotateFace(2, 2);
-  std::cout << "\'ff\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'ff\': " << std::endl;
-  Print();
 }
 
 void Cube::F()
 {
-  std::cout << "Performing a \'F\' rotation..." << std::endl;
-  std::cout << "Cube state before \'F\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'F\' rotation..." << std::endl;
   RotateFace(8, 1);
-  std::cout << "\'F\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'F\': " << std::endl;
-  Print();
 }
 
 void Cube::Fp()
 {
-  std::cout << "Performing a \'Fp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'Fp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'Fp\' rotation..." << std::endl;
   RotateFace(8, -1);
-  std::cout << "\'Fp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'Fp\': " << std::endl;
-  Print();
 }
 
 void Cube::FF()
 {
-  std::cout << "Performing a \'FF\' rotation..." << std::endl;
-  std::cout << "Cube state before \'FF\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'FF\' rotation..." << std::endl;
   RotateFace(8, 2);
-  std::cout << "\'FF\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'FF\': " << std::endl;
-  Print();
 }
 
 void Cube::d()
 {
-  std::cout << "Performing a \'d\' rotation..." << std::endl;
-  std::cout << "Cube state before \'d\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'d\' rotation..." << std::endl;
   RotateFace(6, 1);
-  std::cout << "\'d\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'d\': " << std::endl;
-  Print();
 }
 
 void Cube::dp()
 {
-  std::cout << "Performing a \'dp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'dp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'dp\' rotation..." << std::endl;
   RotateFace(6, -1);
-  std::cout << "\'dp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'dp\': " << std::endl;
-  Print();
 }
 
 void Cube::dd()
 {
-  std::cout << "Performing a \'dd\' rotation..." << std::endl;
-  std::cout << "Cube state before \'dd\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'dd\' rotation..." << std::endl;
   RotateFace(6, 2);
-  std::cout << "\'dd\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'dd\': " << std::endl;
-  Print();
 }
 
 void Cube::D()
 {
-  std::cout << "Performing a \'D\' rotation..." << std::endl;
-  std::cout << "Cube state before \'D\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'D\' rotation..." << std::endl;
   RotateFace(12, 1);
-  std::cout << "\'D\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'D\': " << std::endl;
-  Print();
 }
 
 void Cube::Dp()
 {
-  std::cout << "Performing a \'Dp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'Dp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'Dp\' rotation..." << std::endl;
   RotateFace(12, -1);
-  std::cout << "\'Dp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'Dp\': " << std::endl;
-  Print();
 }
 
 void Cube::DD()
 {
-  std::cout << "Performing a \'DD\' rotation..." << std::endl;
-  std::cout << "Cube state before \'DD\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'DD\' rotation..." << std::endl;
   RotateFace(12, 2);
-  std::cout << "\'DD\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'DD\': " << std::endl;
-  Print();
 }
 
 void Cube::r()
 {
-  std::cout << "Performing a \'r\' rotation..." << std::endl;
-  std::cout << "Cube state before \'r\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'r\' rotation..." << std::endl;
   RotateFace(3, 1);
-  std::cout << "\'r\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'r\': " << std::endl;
-  Print();
 }
 
 void Cube::rp()
 {
-  std::cout << "Performing a \'rp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'rp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'rp\' rotation..." << std::endl;
   RotateFace(3, -1);
-  std::cout << "\'rp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'rp\': " << std::endl;
-  Print();
 }
 
 void Cube::rr()
 {
-  std::cout << "Performing a \'rr\' rotation..." << std::endl;
-  std::cout << "Cube state before \'rr\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'rr\' rotation..." << std::endl;
   RotateFace(3, 2);
-  std::cout << "\'rr\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'rr\': " << std::endl;
-  Print();
 }
 
 void Cube::R()
 {
-  std::cout << "Performing a \'R\' rotation..." << std::endl;
-  std::cout << "Cube state before \'R\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'R\' rotation..." << std::endl;
   RotateFace(9, 1);
-  std::cout << "\'R\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'R\': " << std::endl;
-  Print();
 }
 
 void Cube::Rp()
 {
-  std::cout << "Performing a \'Rp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'Rp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'Rp\' rotation..." << std::endl;
   RotateFace(9, -1);
-  std::cout << "\'Rp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'Rp\': " << std::endl;
-  Print();
 }
 
 void Cube::RR()
 {
-  std::cout << "Performing a \'RR\' rotation..." << std::endl;
-  std::cout << "Cube state before \'RR\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'RR\' rotation..." << std::endl;
   RotateFace(9, 2);
-  std::cout << "\'RR\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'RR\': " << std::endl;
-  Print();
 }
 
 void Cube::b()
 {
-  std::cout << "Performing a \'b\' rotation..." << std::endl;
-  std::cout << "Cube state before \'b\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'b\' rotation..." << std::endl;
   RotateFace(4, 1);
-  std::cout << "\'b\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'b\': " << std::endl;
-  Print();
 }
 
 void Cube::bp()
 {
-  std::cout << "Performing a \'bp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'bp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'bp\' rotation..." << std::endl;
   RotateFace(4, -1);
-  std::cout << "\'bp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'bp\': " << std::endl;
-  Print();
 }
 
 void Cube::bb()
 {
-  std::cout << "Performing a \'bb\' rotation..." << std::endl;
-  std::cout << "Cube state before \'bb\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'bb\' rotation..." << std::endl;
   RotateFace(4, 2);
-  std::cout << "\'bb\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'bb\': " << std::endl;
-  Print();
 }
 
 void Cube::B()
 {
-  std::cout << "Performing a \'B\' rotation..." << std::endl;
-  std::cout << "Cube state before \'b\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'B\' rotation..." << std::endl;
   RotateFace(10, 1);
-  std::cout << "\'B\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'B\': " << std::endl;
-  Print();
 }
 
 void Cube::Bp()
 {
-  std::cout << "Performing a \'Bp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'Bp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'Bp\' rotation..." << std::endl;
   RotateFace(10, -1);
-  std::cout << "\'Bp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'Bp\': " << std::endl;
-  Print();
 }
 
 void Cube::BB()
 {
-  std::cout << "Performing a \'BB\' rotation..." << std::endl;
-  std::cout << "Cube state before \'BB\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'BB\' rotation..." << std::endl;
   RotateFace(10, 2);
-  std::cout << "\'BB\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'BB\': " << std::endl;
-  Print();
 }
 
 void Cube::l()
 {
-  std::cout << "Performing a \'l\' rotation..." << std::endl;
-  std::cout << "Cube state before \'l\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'l\' rotation..." << std::endl;
   RotateFace(5, 1);
-  std::cout << "\'l\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'l\': " << std::endl;
-  Print();
 }
 
 void Cube::lp()
 {
-  std::cout << "Performing a \'lp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'lp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'lp\' rotation..." << std::endl;
   RotateFace(5, -1);
-  std::cout << "\'lp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'lp\': " << std::endl;
-  Print();
 }
 
 void Cube::ll()
 {
-  std::cout << "Performing a \'ll\' rotation..." << std::endl;
-  std::cout << "Cube state before \'ll\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'ll\' rotation..." << std::endl;
   RotateFace(5, 2);
-  std::cout << "\'ll\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'ll\': " << std::endl;
-  Print();
 }
 
 void Cube::L()
 {
-  std::cout << "Performing a \'L\' rotation..." << std::endl;
-  std::cout << "Cube state before \'L\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'L\' rotation..." << std::endl;
   RotateFace(11, 1);
-  std::cout << "\'L\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'L\': " << std::endl;
-  Print();
 }
 
 void Cube::Lp()
 {
-  std::cout << "Performing a \'Lp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'Lp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'Lp\' rotation..." << std::endl;
   RotateFace(11, -1);
-  std::cout << "\'Lp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'Lp\': " << std::endl;
-  Print();
 }
 
 void Cube::LL()
 {
-  std::cout << "Performing a \'LL\' rotation..." << std::endl;
-  std::cout << "Cube state before \'LL\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'LL\' rotation..." << std::endl;
   RotateFace(11, 2);
-  std::cout << "\'LL\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'LL\': " << std::endl;
-  Print();
 }
 
 void Cube::mx()
 {
-  std::cout << "Performing a \'mx\' rotation..." << std::endl;
-  std::cout << "Cube state before \'mx\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'mx\' rotation..." << std::endl;
   RotateFace(13, 1);
-  std::cout << "\'mx\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'mx\': " << std::endl;
-  Print();
 }
 
 void Cube::mxp()
 {
-  std::cout << "Performing a \'mxp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'mxp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'mxp\' rotation..." << std::endl;
   RotateFace(13, -1);
-  std::cout << "\'mxp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'mxp\': " << std::endl;
-  Print();
 }
 
 void Cube::mxx()
 {
-  std::cout << "Performing a \'mxx\' rotation..." << std::endl;
-  std::cout << "Cube state before \'mxx\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'mxx\' rotation..." << std::endl;
   RotateFace(13, 2);
-  std::cout << "\'mxx\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'mxx\': " << std::endl;
-  Print();
 }
 
 void Cube::my()
 {
-  std::cout << "Performing a \'my\' rotation..." << std::endl;
-  std::cout << "Cube state before \'my\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'my\' rotation..." << std::endl;
   RotateFace(14, 1);
-  std::cout << "\'my\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'my\': " << std::endl;
-  Print();
 }
 
 void Cube::myp()
 {
-  std::cout << "Performing a \'myp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'myp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'myp\' rotation..." << std::endl;
   RotateFace(14, -1);
-  std::cout << "\'myp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'myp\': " << std::endl;
-  Print();
 }
 
 void Cube::myy()
 {
-  std::cout << "Performing a \'myy\' rotation..." << std::endl;
-  std::cout << "Cube state before \'myy\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'myy\' rotation..." << std::endl;
   RotateFace(14, 2);
-  std::cout << "\'myy\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'myy\': " << std::endl;
-  Print();
 }
 
 void Cube::mz()
 {
-  std::cout << "Performing a \'mz\' rotation..." << std::endl;
-  std::cout << "Cube state before \'mz\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'mz\' rotation..." << std::endl;
   RotateFace(15, 1);
-  std::cout << "\'mz\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'mz\': " << std::endl;
-  Print();
 }
 
 void Cube::mzp()
 {
-  std::cout << "Performing a \'mzp\' rotation..." << std::endl;
-  std::cout << "Cube state before \'mzp\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'mzp\' rotation..." << std::endl;
   RotateFace(15, -1);
-  std::cout << "\'mzp\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'mzp\': " << std::endl;
-  Print();
 }
 
 void Cube::mzz()
 {
-  std::cout << "Performing a \'mzz\' rotation..." << std::endl;
-  std::cout << "Cube state before \'mzz\': " << std::endl;
-  Print();
+  //std::cout << "Performing a \'mzz\' rotation..." << std::endl;
   RotateFace(15, 2);
-  std::cout << "\'mzz\' rotation complete" << std::endl;
-  std::cout << "Cube state after \'mzz\': " << std::endl;
-  Print();
 }
 
 /* Cube rotation methods. */
 
 void Cube::x()
 {
-  std::cout << "Performing an \'x\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'x\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'x\' cube rotation..." << std::endl;
   RotateCube(1, 1);
-  std::cout << "\'x\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'x\': " << std::endl;
-  Print();
 }
 
 void Cube::xp()
 {
-  std::cout << "Performing an \'xp\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'xp\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'xp\' cube rotation..." << std::endl;
   RotateCube(1, -1);
-  std::cout << "\'xp\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'xp\': " << std::endl;
-  Print();
 }
 
 void Cube::xx()
 {
-  std::cout << "Performing an \'xx\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'xx\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'xx\' cube rotation..." << std::endl;
   /* For now, just perform two clockwise rotations. */
   RotateCube(1, 1);
   RotateCube(1, 1);
-  std::cout << "\'xx\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'xx\': " << std::endl;
-  Print();
 }
 
 void Cube::y()
 {
-  std::cout << "Performing an \'y\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'y\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'y\' cube rotation..." << std::endl;
   RotateCube(2, 1);
-  std::cout << "\'y\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'y\': " << std::endl;
-  Print();
 }
 
 void Cube::yp()
 {
-  std::cout << "Performing an \'yp\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'yp\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'yp\' cube rotation..." << std::endl;
   RotateCube(2, -1);
-  std::cout << "\'yp\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'yp\': " << std::endl;
-  Print();
 }
 
 void Cube::yy()
 {
-  std::cout << "Performing an \'yy\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'yy\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'yy\' cube rotation..." << std::endl;
   /* For now, just perform two clockwise rotations. */
   RotateCube(2, 1);
   RotateCube(2, 1);
-  std::cout << "\'yy\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'yy\': " << std::endl;
-  Print();
 }
 
 void Cube::z()
 {
-  std::cout << "Performing an \'z\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'z\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'z\' cube rotation..." << std::endl;
   RotateCube(3, 1);
-  std::cout << "\'z\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'z\': " << std::endl;
-  Print();
 }
 
 void Cube::zp()
 {
-  std::cout << "Performing an \'zp\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'zp\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'zp\' cube rotation..." << std::endl;
   RotateCube(3, -1);
-  std::cout << "\'zp\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'zp\': " << std::endl;
-  Print();
 }
 
 void Cube::zz()
 {
-  std::cout << "Performing an \'zz\' cube rotation..." << std::endl;
-  std::cout << "Cube state before \'zz\': " << std::endl;
-  Print();
+  //std::cout << "Performing an \'zz\' cube rotation..." << std::endl;
   /* For now, just perform two clockwise rotations. */
   RotateCube(3, 1);
   RotateCube(3, 1);
-  std::cout << "\'zz\' cube rotation complete" << std::endl;
-  std::cout << "Cube state after \'zz\': " << std::endl;
-  Print();
 }
 
 void Cube::Print() const
