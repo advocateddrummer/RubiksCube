@@ -88,7 +88,6 @@ bool Cube::operator==(const Cube & rhs) const
       }
   }
 
-
   /* Find side on temporary copy of rhs that matches the color on the front
    * side of the lhs/self cube.
    */
@@ -137,7 +136,6 @@ bool Cube::operator==(const Cube & rhs) const
       }
   }
 
-
   /* Perform comparison now that tmp is properly oriented. */
   for ( int i = 0; i < 6; i++ )
     for ( int j = 0; j < 9; j++ )
@@ -149,16 +147,51 @@ bool Cube::operator==(const Cube & rhs) const
 
 void Cube::RandomScramble(const int nMoves)
 {
-  /* Vector of all _planned_ possible face/cube rotations; once all planned
-   * methods are implemented, this vector should be used.
-   */
-  //const std::vector<string> moveMap{"x", "xp", "xx", "y", "yp", "yy", "z", "zp", "zz", "u", "up", "uu", "U", "Up", "UU", "f", "fp", "ff", "F", "Fp", "FF", "r", "rp", "rr", "R", "Rp", "RR", "b", "bp", "bb", "B", "Bp", "BB", "l", "lp", "ll", "L", "Lp", "LL", "d", "dp", "dd", "D", "Dp", "DD", "m", "mp", "mm"};
+  /* Add some sort of logging/verbosity logic around this a la: */
+  //if (log)
+  //std::cout << "In Cube::RandomScramble, performing " << nMoves << " twists...\n";
 
-  /* Vector of currently possible face/cube rotations. */
-  const std::vector<std::string> moveMap{"x", "xp", "xx", "y", "yp", "yy", "z", "zp", "zz", "u", "up", "uu", "f", "fp", "ff", "r", "rp", "rr", "b", "bp", "bb", "l", "lp", "ll", "d", "dp", "dd"};
-  const std::vector<void(Cube::*)()> moves{&Cube::x, &Cube::xp, &Cube::xx, &Cube::y, &Cube::yp, &Cube::yy, &Cube::z, &Cube::zp, &Cube::zz, &Cube::u, &Cube::up, &Cube::uu, &Cube::f, &Cube::fp, &Cube::ff, &Cube::r, &Cube::rp, &Cube::rr, &Cube::b, &Cube::bp, &Cube::bb, &Cube::l, &Cube::lp, &Cube::ll, &Cube::d, &Cube::dp, &Cube::dd};
+  /* Vector of possible face/cube rotation string descriptions. */
+  const std::vector<std::string> moveMap{"x", "xp", "xx",
+                                         "y", "yp", "yy",
+                                         "z", "zp", "zz",
+                                         "u", "up", "uu",
+                                         "U", "Up", "UU",
+                                         "f", "fp", "ff",
+                                         "F", "Fp", "FF",
+                                         "r", "rp", "rr",
+                                         "R", "Rp", "RR",
+                                         "b", "bp", "bb",
+                                         "B", "Bp", "BB",
+                                         "l", "lp", "ll",
+                                         "L", "Lp", "LL",
+                                         "d", "dp", "dd",
+                                         "D", "Dp", "DD",
+                                         "mx", "mxp", "mxx",
+                                         "my", "myp", "myy",
+                                         "mz", "mzp", "mzz"};
 
-  /* Got this clever, consise logic from here:
+  /* Vector of possible face/cube rotation function/method pointers. */
+  const std::vector<void(Cube::*)()> moves{&Cube::x, &Cube::xp, &Cube::xx,
+                                           &Cube::y, &Cube::yp, &Cube::yy,
+                                           &Cube::z, &Cube::zp, &Cube::zz,
+                                           &Cube::u, &Cube::up, &Cube::uu,
+                                           &Cube::U, &Cube::Up, &Cube::UU,
+                                           &Cube::f, &Cube::fp, &Cube::ff,
+                                           &Cube::F, &Cube::Fp, &Cube::FF,
+                                           &Cube::r, &Cube::rp, &Cube::rr,
+                                           &Cube::R, &Cube::Rp, &Cube::RR,
+                                           &Cube::b, &Cube::bp, &Cube::bb,
+                                           &Cube::B, &Cube::Bp, &Cube::BB,
+                                           &Cube::l, &Cube::lp, &Cube::ll,
+                                           &Cube::L, &Cube::Lp, &Cube::LL,
+                                           &Cube::d, &Cube::dp, &Cube::dd,
+                                           &Cube::D, &Cube::Dp, &Cube::DD,
+                                           &Cube::mx, &Cube::mxp, &Cube::mxx,
+                                           &Cube::my, &Cube::myp, &Cube::myy,
+                                           &Cube::mz, &Cube::mzp, &Cube::mzz};
+
+  /* Got this clever, concise logic from here:
    * https://cpppatterns.com/patterns/choose-random-element.html
    */
   std::random_device random_device;
@@ -169,11 +202,15 @@ void Cube::RandomScramble(const int nMoves)
 
   for ( int i = 0; i < nMoves; i++ ) {
     index = dist(engine);
-    //std::cout << "In Cube::RandomScramble[" << index << "]..., calling " << moveMap[index] << "...\n";
     (this->*moves[index])();
-    //std::cout << "In Cube::RandomScramble..., Done\n";
+    /* Add some sort of logging/verbosity logic around this a la: */
+    //if (log)
+    //std::cout << moveMap[index] << " ";
   }
 
+  /* Add some sort of logging/verbosity logic around this a la: */
+  //if (log)
+  //std::cout << "\nCube::RandomScramble Done\n";
   return;
 }
 
