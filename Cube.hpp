@@ -318,8 +318,29 @@ class Cube
      */
     void ff();
 
+    /** \brief Perform a clockwise rotation of the front (f) face and adjacent
+     *         vertical middle slice (mz).
+     *
+     * This method rotates the front face and adjacent vertical middle slice
+     * clockwise.
+     */
     void F();
+
+    /** \brief Perform a counterclockwise rotation of the front (f) face and
+     *         adjacent vertical middle slice (mz).
+     *
+     * This method rotates the front face and adjacent vertical middle slice
+     * counterclockwise.
+     */
     void Fp();
+
+    /** \brief Perform a double rotation of the front (f) face and adjacent
+     *         vertical middle slice (mz).
+     *
+     * This method rotates the front face and adjacent vertical slice twice;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state.
+     */
     void FF();
 
     /********************************************************************/
@@ -346,8 +367,29 @@ class Cube
      */
     void rr();
 
+    /** \brief Perform a clockwise rotation of the right (r) face and adjacent
+     *         vertical middle slice (mx).
+     *
+     * This method rotates the right face and adjacent vertical middle slice
+     * clockwise.
+     */
     void R();
+
+    /** \brief Perform a counterclockwise rotation of the right (r) face and
+     *         adjacent vertical middle slice (mx).
+     *
+     * This method rotates the right face and adjacent vertical middle slice
+     * counterclockwise.
+     */
     void Rp();
+
+    /** \brief Perform a double rotation of the right (r) face and adjacent
+     *         vertical middle slice (mx).
+     *
+     * This method rotates the right face and adjacent vertical slice twice;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state.
+     */
     void RR();
 
     /********************************************************************/
@@ -374,8 +416,29 @@ class Cube
      */
     void bb();
 
+    /** \brief Perform a clockwise rotation of the back (b) face and adjacent
+     *         vertical middle slice (mz).
+     *
+     * This method rotates the back face and adjacent vertical middle slice
+     * clockwise.
+     */
     void B();
+
+    /** \brief perform a counterclockwise rotation of the back (b) face and
+     *         adjacent vertical middle slice (mz).
+     *
+     * This method rotates the back face and adjacent vertical middle slice
+     * counterclockwise.
+     */
     void Bp();
+
+    /** \brief Perform a double rotation of the back (b) face and adjacent
+     *         vertical middle slice (mz).
+     *
+     * This method rotates the back face and adjacent vertical slice twice;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state.
+     */
     void BB();
 
     /********************************************************************/
@@ -402,8 +465,29 @@ class Cube
      */
     void ll();
 
+    /** \brief Perform a clockwise rotation of the left (l) face and adjacent
+     *         vertical middle slice (mx).
+     *
+     * This method rotates the left face and adjacent vertical middle slice
+     * clockwise.
+     */
     void L();
+
+    /** \brief perform a counterclockwise rotation of the left (l) face and
+     *         adjacent vertical middle slice (mx).
+     *
+     * This method rotates the left face and adjacent vertical middle slice
+     * counterclockwise.
+     */
     void Lp();
+
+    /** \brief Perform a double rotation of the left (l) face and adjacent
+     *         vertical middle slice (mx).
+     *
+     * This method rotates the left face and adjacent vertical slice twice;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state.
+     */
     void LL();
 
     /********************************************************************/
@@ -430,8 +514,29 @@ class Cube
      */
     void dd();
 
+    /** \brief Perform a clockwise rotation of the down (d) face and adjacent
+     *         horizontal middle slice (my).
+     *
+     * This method rotates the down face and adjacent horizontal middle slice
+     * clockwise.
+     */
     void D();
+
+    /** \brief perform a counterclockwise rotation of the down (d) face and
+     *         adjacent horizontal middle slice (my).
+     *
+     * This method rotates the down face and adjacent horizontal middle slice
+     * counterclockwise.
+     */
     void Dp();
+
+    /** \brief Perform a double rotation of the down (d) face and adjacent
+     *         horizontal middle slice (my).
+     *
+     * This method rotates the down face and adjacent horizontal slice twice;
+     * the direction in this case does not matter as both a double clockwise or
+     * counterclockwise rotation results in the same state.
+     */
     void DD();
 
     /********************************************************************/
