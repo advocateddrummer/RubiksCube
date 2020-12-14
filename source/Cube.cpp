@@ -273,6 +273,8 @@ void Cube::PermuteFace(const int faceID, const int direction)
     std::copy(tmp.begin()              , tmp.end()                , state[faceID].begin() + 6);
   } else if ( direction == 2 )
   {
+    /* Permute face twice. */
+    std::swap_ranges(state[faceID].begin(), state[faceID].begin() + 4, state[faceID].begin() + 4);
   } else
     std::cout << "Error: incorrect direction passed to PermuteFace..." << std::endl;
 }
