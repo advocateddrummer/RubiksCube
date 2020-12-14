@@ -5,7 +5,7 @@
 
 Cube::Cube()
 {
-  std::cout << "Constructing Cube..." << std::endl;
+  //std::cout << "Constructing Cube..." << std::endl;
   state = { { 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o'},
             { 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'},
             { 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w'},
@@ -1462,5 +1462,5 @@ void Cube::Print() const
 
 Cube::~Cube()
 {
-  std::cout << "Destructing Cube..." << std::endl;
+  //std::cout << "Destructing Cube..." << std::endl;
 }
