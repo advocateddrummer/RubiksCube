@@ -530,6 +530,8 @@ void Cube::RotateFace(const int faceID, const int direction)
            */
           std::swap_ranges(state[1].begin(), state[1].begin() + 3, state[3].begin());
           std::swap_ranges(state[2].begin(), state[2].begin() + 3, state[4].begin());
+
+          PermuteFace(5, 2);
         } else {
           std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
         }
@@ -578,6 +580,8 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::swap_ranges(state[0].begin()    , state[0].begin() + 3, state[5].begin() + 4);
           std::swap_ranges(state[2].begin()    , state[2].begin() + 1, state[4].begin() + 4);
           std::swap_ranges(state[2].begin() + 6, state[2].begin() + 8, state[4].begin() + 2);
+
+          PermuteFace(1, 2);
         } else {
           std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
         }
@@ -623,6 +627,8 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::swap_ranges(state[5].begin() + 2, state[5].begin() + 5, state[0].begin() + 2);
           std::swap_ranges(state[1].begin() + 2, state[1].begin() + 4, state[3].begin() + 6);
           std::swap_ranges(state[1].begin() + 4, state[1].begin() + 5, state[3].begin());
+
+          PermuteFace(2, 2);
         } else {
           std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
         }
@@ -671,6 +677,8 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::swap_ranges(state[0].begin() + 4, state[0].begin() + 7, state[5].begin());
           std::swap_ranges(state[2].begin() + 2, state[2].begin() + 4, state[4].begin() + 6);
           std::swap_ranges(state[2].begin() + 4, state[2].begin() + 5, state[4].begin());
+
+          PermuteFace(3, 2);
         } else {
           std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
         }
@@ -724,6 +732,8 @@ void Cube::RotateFace(const int faceID, const int direction)
           std::swap_ranges(state[5].begin() + 6, state[5].begin() + 8, state[0].begin() + 6);
           std::swap_ranges(state[1].begin()    , state[1].begin() + 1, state[3].begin() + 4);
           std::swap_ranges(state[1].begin() + 6, state[1].begin() + 8, state[3].begin() + 2);
+
+          PermuteFace(4, 2);
         } else {
           std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
         }
@@ -761,6 +771,8 @@ void Cube::RotateFace(const int faceID, const int direction)
            */
           std::swap_ranges(state[1].begin() + 4, state[1].begin() + 7, state[3].begin() + 4);
           std::swap_ranges(state[2].begin() + 4, state[2].begin() + 7, state[4].begin() + 4);
+
+          PermuteFace(0, 2);
         } else {
           std::cout << "Error: incorrect direction specified in RotateFace!" << std::endl;
         }
