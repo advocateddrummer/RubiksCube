@@ -169,6 +169,90 @@ TEST_F(CubeTwistTest, RR_equals_ll) {
   ASSERT_EQ(a, b);
 }
 
+/********************************************************************/
+/******************** Middle slice rotation tests *******************/
+/********************************************************************/
+TEST_F(CubeTwistTest, mx_equals_rp_l) {
+
+  a.mx();
+  b.rp();
+  b.l();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, mxp_equals_r_lp) {
+
+  a.mxp();
+  b.r();
+  b.lp();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, mxx_equals_rr_ll) {
+
+  a.mxx();
+  b.rr();
+  b.ll();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, my_equals_up_d) {
+
+  a.my();
+  b.up();
+  b.d();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, myp_equals_u_dp) {
+
+  a.myp();
+  b.u();
+  b.dp();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, myy_equals_uu_dd) {
+
+  a.myy();
+  b.uu();
+  b.dd();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, mz_equals_fp_b) {
+
+  a.mz();
+  b.fp();
+  b.b();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, mzp_equals_f_bp) {
+
+  a.mzp();
+  b.f();
+  b.bp();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, mzz_equals_ff_bb) {
+
+  a.mzz();
+  b.ff();
+  b.bb();
+
+  ASSERT_EQ(a, b);
+}
+
 int main(int argc, char * argv[])
 {
   ::testing::InitGoogleTest(&argc, argv);
