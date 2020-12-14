@@ -67,6 +67,9 @@ TEST_F(CubeTwistTest, DD_equals_uu) {
   ASSERT_EQ(a, b);
 }
 
+/********************************************************************/
+/******************** Front/back rotation tests *********************/
+/********************************************************************/
 TEST_F(CubeTwistTest, f_equals_B) {
 
   a.f();
@@ -83,6 +86,41 @@ TEST_F(CubeTwistTest, F_equals_b) {
   ASSERT_EQ(a, b);
 }
 
+TEST_F(CubeTwistTest, fp_equals_Bp) {
+
+  a.fp();
+  b.Bp();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, Fp_equals_bp) {
+
+  a.Fp();
+  b.bp();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, ff_equals_BB) {
+
+  a.ff();
+  b.BB();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, FF_equals_bb) {
+
+  a.FF();
+  b.bb();
+
+  ASSERT_EQ(a, b);
+}
+
+/********************************************************************/
+/********************* Right/left rotation tests ********************/
+/********************************************************************/
 TEST_F(CubeTwistTest, r_equals_L) {
 
   a.r();
@@ -99,21 +137,38 @@ TEST_F(CubeTwistTest, R_equals_l) {
   ASSERT_EQ(a, b);
 }
 
-TEST_F(CubeTwistTest, b_equals_F) {
+TEST_F(CubeTwistTest, rp_equals_Lp) {
 
-  a.b();
-  b.F();
+  a.rp();
+  b.Lp();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, Rp_equals_lp) {
+
+  a.Rp();
+  b.lp();
 
   ASSERT_EQ(a, b);
 }
 
-TEST_F(CubeTwistTest, B_equals_f) {
+TEST_F(CubeTwistTest, rr_equals_LL) {
 
-  a.B();
-  b.f();
+  a.rr();
+  b.LL();
 
   ASSERT_EQ(a, b);
 }
+
+TEST_F(CubeTwistTest, RR_equals_ll) {
+
+  a.RR();
+  b.ll();
+
+  ASSERT_EQ(a, b);
+}
+
 int main(int argc, char * argv[])
 {
   ::testing::InitGoogleTest(&argc, argv);
