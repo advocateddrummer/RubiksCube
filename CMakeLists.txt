@@ -10,7 +10,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 include_directories("${PROJECT_SOURCE_DIR}/source/")
 
 add_executable(rc main.cpp ${PROJECT_SOURCE_DIR}/source/Cube.cpp
-                  ${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp)
+                  ${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp
+                  ${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp)
 
 ###############################################################################
 #                         Google's gtest unit testing                         #
@@ -32,7 +33,8 @@ if(gtest_build_tests)
 
   add_executable(cubeTwistTest "${PROJECT_SOURCE_DIR}/test/TestCubeTwists.cpp"
                                "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
-                               "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp")
+                               "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
+                               "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
 
   target_link_libraries(cubeTwistTest gtest)
 
