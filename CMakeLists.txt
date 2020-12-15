@@ -57,11 +57,20 @@ if(gtest_build_tests)
 
   target_link_libraries(cubeTest gtest)
 
+  # Test face twist logic.
   add_executable(cubeTwistTest "${PROJECT_SOURCE_DIR}/test/TestCubeTwists.cpp"
                                "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
                                "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
                                "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
 
   target_link_libraries(cubeTwistTest gtest)
+
+  # Test cube rotation logic.
+  add_executable(cubeRotationTest "${PROJECT_SOURCE_DIR}/test/TestCubeRotations.cpp"
+                                  "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
+                                  "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
+                                  "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
+
+  target_link_libraries(cubeRotationTest gtest)
 
 endif() # gtest_build_tests
