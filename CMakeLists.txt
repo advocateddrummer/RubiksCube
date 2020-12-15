@@ -2,6 +2,21 @@ cmake_minimum_required(VERSION 3.10)
 
 project(RubiksCube)
 
+# Find git for version number generation.
+find_package(Git)
+
+# This is where cmake modules will live.
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+
+# Find git for version number generation.
+find_package(Git)
+
+# this custom target generates the version string from the git repository.
+add_custom_target(git-version
+                  ${CMAKE_COMMAND} -D SRC=${CMAKE_SOURCE_DIR}/Version.hpp.in
+                                   -D DEST=${CMAKE_SOURCE_DIR}/Version.hpp
+                                   -P ${CMAKE_MODULE_PATH}/GenerateGitVersion.cmake)
+
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
@@ -13,6 +28,8 @@ include_directories("${PROJECT_SOURCE_DIR}/source/")
 add_executable(rc main.cpp ${PROJECT_SOURCE_DIR}/source/Cube.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp)
+
+add_dependencies(rc git-version)
 
 ###############################################################################
 #                         Google's gtest unit testing                         #
