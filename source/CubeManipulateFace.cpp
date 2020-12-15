@@ -1,6 +1,18 @@
 #include <iostream>
 #include "Cube.hpp"
 
+void Cube::SexyMove(const int count)
+{
+  for ( int c = 0; c < count; c++ ) {
+    this->r();
+    this->u();
+    this->rp();
+    this->up();
+  }
+
+  return;
+}
+
 void Cube::PermuteFace(const int faceID, const int direction)
 {
 

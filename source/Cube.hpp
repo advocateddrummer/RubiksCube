@@ -150,6 +150,16 @@ class Cube
      */
     void RandomScramble(const int nMoves = 25);
 
+    /** \brief Perform 'sexy move' on cube
+     *
+     * This method is a wrapper which performs the so-called 'sexy move' on the
+     * cube state. Note: this should leave the cube state unchanged if
+     * performed six times.
+     *
+     * \param[in] count [default 1] Number of times to perform the 'sexy move'.
+     */
+    void SexyMove(const int count = 1);
+
     /** \brief Print cube state.
      * This method simply prints out the current cube state, as represented by
      * the internal 'state' vector variable.
