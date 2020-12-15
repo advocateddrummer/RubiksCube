@@ -12,6 +12,35 @@ class CubeTwistTest : public ::testing::Test {
     Cube b;
 };
 
+/* Test 'sexy move' which should result in an unchanged cube state if performed
+ * six times.
+ */
+TEST_F(CubeTwistTest, sexyMoveSixTimesFromRandom) {
+  for ( int i = 0; i < 6; i++ ) {
+    b.r();
+    b.u();
+    b.rp();
+    b.up();
+  }
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, sexyMoveSixTimesFromSolved) {
+  /* Reset both cube states to solved. */
+  a.ResetCube();
+
+  /* Perform six 'sexy moves' */
+  for ( int i = 0; i < 6; i++ ) {
+    a.r();
+    a.u();
+    a.rp();
+    a.up();
+  }
+
+  ASSERT_TRUE(a.IsSolved());
+}
+
 /********************************************************************/
 /* Single face rotation versus opposite double face rotation tests. */
 /********************************************************************/
