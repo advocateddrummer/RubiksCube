@@ -1,7 +1,10 @@
+#include <iostream>
 #include "Cube.hpp"
+#include "Version.hpp"
 
 int main(int argc, char * argv[])
 {
+  std::cout << "RubiksCube version: " << VERSION << "\n";
   Cube c;
 
   if (c.IsSolved())
@@ -23,4 +26,3 @@ int main(int argc, char * argv[])
 
   return 0;
 }
-
