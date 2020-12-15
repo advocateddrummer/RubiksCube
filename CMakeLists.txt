@@ -49,6 +49,14 @@ if(gtest_build_tests)
   # gtest library.
   link_directories(${gtest_dir}/lib)
 
+  # Test general cube logic.
+  add_executable(cubeTest "${PROJECT_SOURCE_DIR}/test/TestCube.cpp"
+                          "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
+                          "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
+                          "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
+
+  target_link_libraries(cubeTest gtest)
+
   add_executable(cubeTwistTest "${PROJECT_SOURCE_DIR}/test/TestCubeTwists.cpp"
                                "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
                                "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
