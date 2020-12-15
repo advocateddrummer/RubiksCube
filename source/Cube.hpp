@@ -1,3 +1,6 @@
+#ifndef CUBE_HPP
+#define CUBE_HPP
+
 #include <vector>
 
 class Cube
@@ -656,3 +659,4 @@ class Cube
      */
     void mzz();
 };
+#endif /* end of include guard: CUBE_HPP */
