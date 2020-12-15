@@ -17,19 +17,48 @@ add_custom_target(git-version
                                    -D DEST=${CMAKE_SOURCE_DIR}/Version.hpp
                                    -P ${CMAKE_MODULE_PATH}/GenerateGitVersion.cmake)
 
+# Boost stuff.
+set(BOOST_ROOT "/Users/ehereth/local")
+set(Boost_NO_BOOST_CMAKE on)
+set(Boost_NO_SYSTEM_PATHS on)
+set(Boost_USE_STATIC_LIBS on)
+unset(Boost_INCLUDE_DIR CACHE)
+unset(Boost_LIBRARY_DIRS CACHE)
+find_package(Boost 1.75.0 REQUIRED
+                          COMPONENTS
+                          program_options) # Commandline/configuration file parsing.
+                          #system          # Needed for boost::timer.
+                          #timer           # CPU timer.
+                          #chrono          # another CPU timer.
+                          #filesystem)     # basename/extension extraction etc.
+
+if (Boost_FOUND)
+  include_directories(${Boost_INCLUDE_DIRS})
+  link_directories(${Boost_LIBRARY_DIRS})
+  #message(STATUS "Boost include directory: " ${Boost_INCLUDE_DIR})
+  #message(STATUS "Boost include directories: " ${Boost_INCLUDE_DIRS})
+  #message(STATUS "Boost library directory: " ${Boost_LIBRARY_DIR})
+  #message(STATUS "Boost library directories: " ${Boost_LIBRARY_DIRS})
+  #message(STATUS "Boost libraries: " ${Boost_LIBRARIES})
+endif()
+
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
 
-include_directories("${PROJECT_SOURCE_DIR}/source/")
+include_directories(${PROJECT_SOURCE_DIR}
+                    "${PROJECT_SOURCE_DIR}/utils/"
+                    "${PROJECT_SOURCE_DIR}/source/")
 
 add_executable(rc main.cpp ${PROJECT_SOURCE_DIR}/source/Cube.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp
-                  ${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp)
+                  ${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp
+                  ${PROJECT_SOURCE_DIR}/utils/CubeParams.cpp)
 
 add_dependencies(rc git-version)
+target_link_libraries(rc boost_program_options.a) # boost::program_options
 
 ###############################################################################
 #                         Google's gtest unit testing                         #

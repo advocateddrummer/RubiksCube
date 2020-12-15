@@ -1,10 +1,13 @@
 #include <iostream>
+#include "CubeParams.hpp"
 #include "Cube.hpp"
 #include "Version.hpp"
 
 int main(int argc, char * argv[])
 {
-  std::cout << "RubiksCube version: " << VERSION << "\n";
+  /* Parse command line arguments. */
+  CubeParams * cp = new CubeParams(argc, argv);
+
   Cube c;
 
   if (c.IsSolved())
