@@ -244,6 +244,20 @@ void Cube::ResetCube()
   return;
 }
 
+void Cube::SetCubeState(const std::vector<char> newState)
+{
+  /* TODO: figure out a better way to handle this. */
+  /* Make sure that at least the correct number of elements are input. */
+  if( newState.size() != 54 )
+    throw "Cube::SetCubeState must have an input state with 54 elements!";
+
+  for ( int s = 0; s < 6; s++ )
+    for ( int c = 0; c < 9; c++ )
+      state[s][c] = newState[s*9 + c];
+
+  return;
+}
+
 void Cube::u()
 {
   //std::cout << "Performing a \'u\' rotation..." << std::endl;

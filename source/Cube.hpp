@@ -171,6 +171,23 @@ class Cube
      */
     void ResetCube();
 
+    /** \brief Set cube state
+     * This method sets the cube state to the specified state. NOTE: currently
+     * this method does _nothing_ to assure that the input state is valid other
+     * than test that the correct number of colors/elements are provided.
+     *
+     * TODO: Exception handling is poorly implemented; fix/improve this.
+     *
+     * \param[in] newState [default solved] std::vector of chars specifying the
+     *                     desired cube state.
+     */
+    void SetCubeState(const std::vector<char> newState = {'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o', 'o',
+                                                          'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b',
+                                                          'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w', 'w',
+                                                          'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g', 'g',
+                                                          'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y', 'y',
+                                                          'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r', 'r'});
+
     /** \brief Determine if the cube is solved.
      * This method compares the cube state against a solved cube state to
      * determine if the cube has been solved.
