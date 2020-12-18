@@ -151,7 +151,7 @@ void Cube::RandomScramble(const int nMoves)
 {
   /* Add some sort of logging/verbosity logic around this a la: */
   //if (log)
-  //std::cout << "In Cube::RandomScramble, performing " << nMoves << " twists...\n";
+  std::cout << "In Cube::RandomScramble, performing " << nMoves << " twists...\n";
 
   /* Vector of possible face/cube rotation string descriptions. */
   const std::vector<std::string> moveMap{"x", "xp", "xx",
@@ -207,12 +207,12 @@ void Cube::RandomScramble(const int nMoves)
     (this->*moves[index])();
     /* Add some sort of logging/verbosity logic around this a la: */
     //if (log)
-    //std::cout << moveMap[index] << " ";
+    std::cout << moveMap[index] << " ";
   }
 
   /* Add some sort of logging/verbosity logic around this a la: */
   //if (log)
-  //std::cout << "\nCube::RandomScramble Done\n";
+  std::cout << "\nCube::RandomScramble Done\n";
   return;
 }
 
