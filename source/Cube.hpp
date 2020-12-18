@@ -158,6 +158,15 @@ class Cube
      */
     void RandomScramble(const int nMoves = 25);
 
+    /** \brief Apply a series of twists to the cube state
+     *
+     * This method takes as input a series of twists and then applies them to
+     * the cube state.
+     *
+     * \param[in] twists a string of space delimited twists to perform on the cube.
+     */
+    void ApplyTwists(const std::string twists);
+
     /** \brief Perform 'sexy move' on cube
      *
      * This method is a wrapper which performs the so-called 'sexy move' on the

@@ -1,7 +1,9 @@
 #include <iostream>
 #include <random>
+#include <map>
 #include <algorithm>
 #include "Cube.hpp"
+#include "Utils.hpp"
 
 Cube::Cube()
 {
@@ -212,6 +214,138 @@ void Cube::RandomScramble(const int nMoves)
   //if (log)
   //std::cout << "\nCube::RandomScramble Done\n";
   return;
+}
+
+void Cube::ApplyTwists(const std::string twists) {
+
+  const std::map<std::string, int> map { {"D", 0}, {"D'", 1}, {"D2", 2},
+                                         {"F", 3}, {"F'", 4}, {"F2", 5},
+                                         {"R", 6}, {"R'", 7}, {"R2", 8},
+                                         {"B", 9}, {"B'", 10}, {"B2", 11},
+                                         {"L", 12}, {"L'", 13}, {"L2", 14},
+                                         {"U", 15}, {"U'", 16}, {"U2", 17} };
+
+  std::vector<std::string> words = StringSplit(twists, ' ');
+
+  for (const auto &w : words) {
+    //std::cout << w << std::endl;
+    switch ( map.at(w) ) {
+      case 0 :
+        {
+          //puts("found D");
+          this->d();
+          break;
+        }
+      case 1 :
+        {
+          //puts("found D'");
+          this->dp();
+          break;
+        }
+      case 2 :
+        {
+          //puts("found D2");
+          this->dd();
+          break;
+        }
+      case 3 :
+        {
+          //puts("found F");
+          this->f();
+          break;
+        }
+      case 4 :
+        {
+          //puts("found F'");
+          this->fp();
+          break;
+        }
+      case 5 :
+        {
+          //puts("found F2");
+          this->ff();
+          break;
+        }
+      case 6 :
+        {
+          //puts("found R");
+          this->r();
+          break;
+        }
+      case 7 :
+        {
+          //puts("found R'");
+          this->rp();
+          break;
+        }
+      case 8 :
+        {
+          //puts("found R2");
+          this->rr();
+          break;
+        }
+      case 9 :
+        {
+          //puts("found B");
+          this->b();
+          break;
+        }
+      case 10 :
+        {
+          //puts("found B'");
+          this->bp();
+          break;
+        }
+      case 11 :
+        {
+          //puts("found B2");
+          this->bb();
+          break;
+        }
+      case 12 :
+        {
+          //puts("found L");
+          this->l();
+          break;
+        }
+      case 13 :
+        {
+          //puts("found L'");
+          this->lp();
+          break;
+        }
+      case 14 :
+        {
+          //puts("found L2");
+          this->ll();
+          break;
+        }
+      case 15 :
+        {
+          //puts("found U");
+          this->u();
+          break;
+        }
+      case 16 :
+        {
+          //puts("found U'");
+          this->up();
+          break;
+        }
+      case 17 :
+        {
+          //puts("found U2");
+          this->uu();
+          break;
+        }
+      default :
+        {
+          std::cout << "unhandled twist: " << w << "\n";
+          break;
+        }
+    }
+  }
+
 }
 
 int Cube::IsSolved()

@@ -60,6 +60,7 @@ add_executable(rc main.cpp ${PROJECT_SOURCE_DIR}/source/Cube.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeSolve.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp
+                  ${PROJECT_SOURCE_DIR}/utils/Utils.cpp
                   ${PROJECT_SOURCE_DIR}/utils/CubeParams.cpp)
 
 add_dependencies(rc git-version)
@@ -87,6 +88,7 @@ if(gtest_build_tests)
   # Test general cube logic.
   add_executable(cubeTest "${PROJECT_SOURCE_DIR}/test/TestCube.cpp"
                           "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
+                          "${PROJECT_SOURCE_DIR}/utils/Utils.cpp"
                           "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
                           "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
 
@@ -95,6 +97,7 @@ if(gtest_build_tests)
   # Test face twist logic.
   add_executable(cubeTwistTest "${PROJECT_SOURCE_DIR}/test/TestCubeTwists.cpp"
                                "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
+                               "${PROJECT_SOURCE_DIR}/utils/Utils.cpp"
                                "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
                                "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
 
@@ -103,6 +106,7 @@ if(gtest_build_tests)
   # Test cube rotation logic.
   add_executable(cubeRotationTest "${PROJECT_SOURCE_DIR}/test/TestCubeRotations.cpp"
                                   "${PROJECT_SOURCE_DIR}/source/Cube.cpp"
+                                  "${PROJECT_SOURCE_DIR}/utils/Utils.cpp"
                                   "${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp"
                                   "${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp")
 
