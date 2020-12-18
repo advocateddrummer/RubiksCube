@@ -48,17 +48,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
 
+# Kociemba stuff
+include_directories(${CMAKE_SOURCE_DIR}/kociemba/kociemba/ckociemba/include)
+link_directories(${CMAKE_SOURCE_DIR}/kociemba/kociemba/ckociemba/lib)
+
 include_directories(${PROJECT_SOURCE_DIR}
                     "${PROJECT_SOURCE_DIR}/utils/"
                     "${PROJECT_SOURCE_DIR}/source/")
 
 add_executable(rc main.cpp ${PROJECT_SOURCE_DIR}/source/Cube.cpp
+                  ${PROJECT_SOURCE_DIR}/source/CubeSolve.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeManipulateFace.cpp
                   ${PROJECT_SOURCE_DIR}/source/CubeRotations.cpp
                   ${PROJECT_SOURCE_DIR}/utils/CubeParams.cpp)
 
 add_dependencies(rc git-version)
 target_link_libraries(rc boost_program_options.a) # boost::program_options
+target_link_libraries(rc libkociemba.a) # kociemba library
 
 ###############################################################################
 #                         Google's gtest unit testing                         #

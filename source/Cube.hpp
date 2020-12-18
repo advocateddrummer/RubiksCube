@@ -2,6 +2,7 @@
 #define CUBE_HPP
 
 #include <vector>
+#include <string>
 
 class Cube
 {
@@ -122,6 +123,8 @@ class Cube
      */
     void RotateCube(const int axis, const int direction = 1);
 
+    std::string StateToKociemba();
+
   public:
 
     /** \brief Default constructor.
@@ -143,6 +146,8 @@ class Cube
      * Overload == in order to compare two cube states.
      */
     bool operator==(const Cube& rhs) const;
+
+    const std::string Solve();
 
     /** \brief Scramble the cube state
      * This method performs a random of the cube state.
