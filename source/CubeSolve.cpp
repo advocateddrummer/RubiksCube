@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include "Utils.hpp"
 #include "Cube.hpp"
 
 extern "C" char* solution(char* facelets, int maxDepth, long timeOut, int useSeparator, const char* cache_dir);
@@ -20,6 +21,31 @@ std::string Cube::StateToKociemba()
       facelets += stateToKociembaMap.at(state[s][f]);
 
   return facelets;
+}
+
+const std::string Cube::TranslateKociembaTwists(const std::string kociembaSolution)
+{
+  /* Map from kociemba solution to internal twists. */
+  const std::map<std::string, std::string> solutionTraslationMap { {"D", "d"}, {"D'", "dp"}, {"D2", "dd"},
+                                                                   {"F", "f"}, {"F'", "fp"}, {"F2", "ff"},
+                                                                   {"R", "r"}, {"R'", "rp"}, {"R2", "rr"},
+                                                                   {"B", "b"}, {"B'", "bp"}, {"B2", "bb"},
+                                                                   {"L", "l"}, {"L'", "lp"}, {"L2", "ll"},
+                                                                   {"U", "u"}, {"U'", "up"}, {"U2", "uu"} };
+  std::string ourSolution{""};
+
+  std::vector<std::string> words = StringSplit(kociembaSolution, ' ');
+
+  /* Initialize our solution from the kociemba solution. */
+  for (const auto &w : words) {
+    ourSolution += solutionTraslationMap.at(w);
+    ourSolution += " ";
+  }
+
+  //std::cout << "ourSolution.size(): \"" << ourSolution.size() << "\" kociembaSolution.size(): \"" << kociembaSolution.size() << "\"\n";
+  //std::cout << "ourSolution: \"" << ourSolution << "\" kociembaSolution: \"" <<  kociembaSolution << "\"\n";
+
+  return ourSolution;
 }
 
 const std::string Cube::Solve()

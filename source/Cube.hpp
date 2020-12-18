@@ -130,6 +130,16 @@ class Cube
      */
     std::string StateToKociemba();
 
+    /** \brief Translate kociemba results to internal nomenclature
+     *
+     * This method takes the solution obtained by kociemba and translates it
+     * back into the internal twist nomenclature. Kociemba returns twists like:
+     * R, R', R2, U, U', U2, etc. (only single slice twists). This method
+     * translates these twists into internal twist nomenclature, i.e., r, rp,
+     * rr, u, up, uu, etc.
+     */
+    const std::string TranslateKociembaTwists(const std::string kociembaSolution);
+
   public:
 
     /** \brief Default constructor.
