@@ -59,5 +59,7 @@ const std::string Cube::Solve()
   else
     std::cout << "Did not Find solution; return value: " << sol << "\n";
 
-  return std::string(sol);
+  const std::string ourSolution = TranslateKociembaTwists(std::string(sol));
+
+  return ourSolution;
 };

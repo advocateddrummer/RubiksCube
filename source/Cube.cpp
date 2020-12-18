@@ -218,134 +218,366 @@ void Cube::RandomScramble(const int nMoves)
 
 void Cube::ApplyTwists(const std::string twists) {
 
-  const std::map<std::string, int> map { {"D", 0}, {"D'", 1}, {"D2", 2},
-                                         {"F", 3}, {"F'", 4}, {"F2", 5},
-                                         {"R", 6}, {"R'", 7}, {"R2", 8},
-                                         {"B", 9}, {"B'", 10}, {"B2", 11},
-                                         {"L", 12}, {"L'", 13}, {"L2", 14},
-                                         {"U", 15}, {"U'", 16}, {"U2", 17} };
+  /* This is probably very inefficient, but this map facilitates the switch
+   * statement below.
+   */
+  const std::map<std::string, int> map { {"x",  0},  {"xp",  1},  {"xx",  3},
+                                         {"y",  3},  {"yp",  4},  {"yy",  5},
+                                         {"z",  6},  {"zp",  7},  {"zz",  8},
+                                         {"d",  9},  {"dp",  10}, {"dd",  11},
+                                         {"D",  12}, {"Dp",  13}, {"DD",  14},
+                                         {"f",  15}, {"fp",  16}, {"ff",  17},
+                                         {"F",  18}, {"Fp",  19}, {"FF",  20},
+                                         {"r",  21}, {"rp",  22}, {"rr",  23},
+                                         {"R",  24}, {"Rp",  25}, {"RR",  26},
+                                         {"b",  27}, {"bp",  28}, {"bb",  29},
+                                         {"B",  30}, {"Bp",  31}, {"BB",  32},
+                                         {"l",  33}, {"lp",  34}, {"ll",  35},
+                                         {"L",  36}, {"Lp",  37}, {"LL",  38},
+                                         {"u",  39}, {"up",  40}, {"uu",  41},
+                                         {"U",  42}, {"Up",  43}, {"UU",  44},
+                                         {"mx", 45}, {"mxp", 46}, {"mxx", 47},
+                                         {"my", 48}, {"myp", 49}, {"myy", 50},
+                                         {"mz", 51}, {"mzp", 52}, {"mzz", 53} };
 
+  /* Split input solution string into individual twists. */
   std::vector<std::string> words = StringSplit(twists, ' ');
 
+  /* Apply twists. */
   for (const auto &w : words) {
     //std::cout << w << std::endl;
     switch ( map.at(w) ) {
       case 0 :
         {
-          //puts("found D");
-          this->d();
+          //puts("found x");
+          this->x();
           break;
         }
       case 1 :
         {
-          //puts("found D'");
-          this->dp();
+          //puts("found xp");
+          this->xp();
           break;
         }
       case 2 :
         {
-          //puts("found D2");
-          this->dd();
+          //puts("found xx");
+          this->xx();
           break;
         }
       case 3 :
         {
-          //puts("found F");
-          this->f();
+          //puts("found y");
+          this->y();
           break;
         }
       case 4 :
         {
-          //puts("found F'");
-          this->fp();
+          //puts("found yp");
+          this->yp();
           break;
         }
       case 5 :
         {
-          //puts("found F2");
-          this->ff();
+          //puts("found yy");
+          this->yy();
           break;
         }
       case 6 :
         {
-          //puts("found R");
-          this->r();
+          //puts("found z");
+          this->z();
           break;
         }
       case 7 :
         {
-          //puts("found R'");
-          this->rp();
+          //puts("found zp");
+          this->zp();
           break;
         }
       case 8 :
         {
-          //puts("found R2");
-          this->rr();
+          //puts("found zz");
+          this->zz();
           break;
         }
       case 9 :
         {
-          //puts("found B");
-          this->b();
+          //puts("found d");
+          this->d();
           break;
         }
       case 10 :
         {
-          //puts("found B'");
-          this->bp();
+          //puts("found dp");
+          this->dp();
           break;
         }
       case 11 :
         {
-          //puts("found B2");
-          this->bb();
+          //puts("found dd");
+          this->dd();
           break;
         }
       case 12 :
         {
-          //puts("found L");
-          this->l();
+          //puts("found D");
+          this->D();
           break;
         }
       case 13 :
         {
-          //puts("found L'");
-          this->lp();
+          //puts("found Dp");
+          this->Dp();
           break;
         }
       case 14 :
         {
-          //puts("found L2");
-          this->ll();
+          //puts("found DD");
+          this->DD();
           break;
         }
       case 15 :
         {
-          //puts("found U");
-          this->u();
+          //puts("found f");
+          this->f();
           break;
         }
       case 16 :
         {
-          //puts("found U'");
-          this->up();
+          //puts("found fp");
+          this->fp();
           break;
         }
       case 17 :
         {
-          //puts("found U2");
+          //puts("found ff");
+          this->ff();
+          break;
+        }
+      case 18 :
+        {
+          //puts("found F");
+          this->F();
+          break;
+        }
+      case 19 :
+        {
+          //puts("found Fp");
+          this->Fp();
+          break;
+        }
+      case 20 :
+        {
+          //puts("found FF");
+          this->FF();
+          break;
+        }
+      case 21 :
+        {
+          //puts("found r");
+          this->r();
+          break;
+        }
+      case 22 :
+        {
+          //puts("found rp");
+          this->rp();
+          break;
+        }
+      case 23 :
+        {
+          //puts("found rr");
+          this->rr();
+          break;
+        }
+      case 24 :
+        {
+          //puts("found R");
+          this->R();
+          break;
+        }
+      case 25 :
+        {
+          //puts("found Rp");
+          this->Rp();
+          break;
+        }
+      case 26 :
+        {
+          //puts("found RR");
+          this->RR();
+          break;
+        }
+      case 27 :
+        {
+          //puts("found b");
+          this->b();
+          break;
+        }
+      case 28 :
+        {
+          //puts("found bp");
+          this->bp();
+          break;
+        }
+      case 29 :
+        {
+          //puts("found bb");
+          this->bb();
+          break;
+        }
+      case 30 :
+        {
+          //puts("found B");
+          this->B();
+          break;
+        }
+      case 31 :
+        {
+          //puts("found Bp");
+          this->Bp();
+          break;
+        }
+      case 32 :
+        {
+          //puts("found BB");
+          this->BB();
+          break;
+        }
+      case 33 :
+        {
+          //puts("found l");
+          this->l();
+          break;
+        }
+      case 34 :
+        {
+          //puts("found lp");
+          this->lp();
+          break;
+        }
+      case 35 :
+        {
+          //puts("found ll");
+          this->ll();
+          break;
+        }
+      case 36 :
+        {
+          //puts("found L");
+          this->L();
+          break;
+        }
+      case 37 :
+        {
+          //puts("found Lp");
+          this->Lp();
+          break;
+        }
+      case 38 :
+        {
+          //puts("found LL");
+          this->LL();
+          break;
+        }
+      case 39 :
+        {
+          //puts("found u");
+          this->u();
+          break;
+        }
+      case 40 :
+        {
+          //puts("found up");
+          this->up();
+          break;
+        }
+      case 41 :
+        {
+          //puts("found uu");
           this->uu();
+          break;
+        }
+      case 42 :
+        {
+          //puts("found U");
+          this->U();
+          break;
+        }
+      case 43 :
+        {
+          //puts("found Up");
+          this->Up();
+          break;
+        }
+      case 44 :
+        {
+          //puts("found UU");
+          this->UU();
+          break;
+        }
+      case 45 :
+        {
+          //puts("found mx");
+          this->mx();
+          break;
+        }
+      case 46 :
+        {
+          //puts("found mxp");
+          this->mxp();
+          break;
+        }
+      case 47 :
+        {
+          //puts("found mxx");
+          this->mxx();
+          break;
+        }
+      case 48 :
+        {
+          //puts("found my");
+          this->my();
+          break;
+        }
+      case 49 :
+        {
+          //puts("found myp");
+          this->myp();
+          break;
+        }
+      case 50 :
+        {
+          //puts("found myy");
+          this->myy();
+          break;
+        }
+      case 51 :
+        {
+          //puts("found mz");
+          this->mz();
+          break;
+        }
+      case 52 :
+        {
+          //puts("found mzp");
+          this->mzp();
+          break;
+        }
+      case 53 :
+        {
+          //puts("found mzz");
+          this->mzz();
           break;
         }
       default :
         {
-          std::cout << "unhandled twist: " << w << "\n";
+          std::cout << "ERROR unhandled twist: " << w << " in Cube::ApplyTwists\n";
           break;
         }
     }
   }
-
 }
 
 int Cube::IsSolved()
