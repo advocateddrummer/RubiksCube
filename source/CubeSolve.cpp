@@ -20,6 +20,9 @@ std::string Cube::StateToKociemba()
     for ( auto f : {0, 1, 2, 7, 8, 3, 6, 5, 4} )
       facelets += stateToKociembaMap.at(state[s][f]);
 
+  //std::cout << "facelets.size(): \"" << facelets.size() << "\"\n";
+  //std::cout << "facelets: \"" << facelets << "\"\n";
+
   return facelets;
 }
 
@@ -51,6 +54,8 @@ const std::string Cube::TranslateKociembaTwists(const std::string kociembaSoluti
 const std::string Cube::Solve()
 {
   const std::string facelets = this->StateToKociemba();
+
+  //std::cout << "in Cube::Solve(); facelets = " << facelets.c_str() << "\n";
 
   /* Call kociemba solution function. */
   char * sol = solution(const_cast<char*>(facelets.c_str()), 24, 1000, 0, "cache");
