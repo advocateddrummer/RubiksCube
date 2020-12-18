@@ -123,6 +123,11 @@ class Cube
      */
     void RotateCube(const int axis, const int direction = 1);
 
+    /** \brief Translate internal state to input encoding required by kociemba
+     *
+     * This method takes the internal cube state and encodes it in the way that
+     * the kociemba code expects it.
+     */
     std::string StateToKociemba();
 
   public:
