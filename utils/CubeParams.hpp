@@ -35,6 +35,7 @@ class CubeParams
     ~CubeParams();
 
     int verbose; /**< Level of program verbosity. */
+    bool explain; /**< Explain RubiksCube nomenclature. */
 };
 
 #endif /* end of include guard: CUBEPARAMS_HPP */

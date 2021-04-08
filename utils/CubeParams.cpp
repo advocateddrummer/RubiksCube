@@ -7,6 +7,7 @@ namespace po = boost::program_options;
 
 CubeParams::CubeParams()
 {
+  explain = false; /**< By default, do not explain nomenclature. */
   verbose = 0;
 }
 
@@ -32,7 +33,8 @@ CubeParams::CubeParams(const int argc, char * argv[])
      */
     po::options_description config("Configuration");
     config.add_options()
-      ("verbose,v", po::value<int>(&verbose)->default_value(0), "verbosity level.")
+      ("verbose,v", po::value<int>(&verbose)->default_value(0),      "verbosity level.")
+      ("explain,e", po::bool_switch(&explain)->default_value(false), "explain RubiksCube nomenclature.")
       ;
 
     /*
@@ -97,6 +99,7 @@ CubeParams::CubeParams(const int argc, char * argv[])
     std::cout << "\nRubiksCube Configurations:" << std::endl;
     std::cout << "Version:         " << VERSION << "\n";
     std::cout << "Verbosity level: " << verbose << "\n";
+    std::cout << "Explain:         " << explain << "\n";
 
   }
   catch(std::exception & e) {
