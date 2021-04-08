@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "Cube.hpp"
 #include "Utils.hpp"
+#include "Version.hpp"
 
 Cube::Cube()
 {
@@ -967,6 +968,87 @@ void Cube::Print() const
     std::cout << std::endl;
   }
   std::cout << "Cube::Print() Done..." << std::endl;
+}
+
+void Cube::Explain() const
+{
+  std::stringstream explain;
+
+  explain << "\n";
+  explain << "##############################################################################\n";
+  explain << "########################## RubiksCube Nomenclature: ##########################\n";
+  explain << "##############################################################################\n";
+  explain << "RubiksCube Version: " << VERSION << "\n\n";
+
+  explain << "The RubiksCube state is represented by single characters as follows:\n\n";
+
+  explain << "\to: Orange cubie face\n";
+  explain << "\tb: Blue cubie face\n";
+  explain << "\tw: White cubie face\n";
+  explain << "\tg: Green cubie face\n";
+  explain << "\ty: Yellow cubie face\n";
+  explain << "\tr: Red cubie face\n\n";
+
+  explain << "For example, a solved cube looks like:\n\n";
+
+  explain << "\tw  w  w  w  w  w  w  w  w\n";
+  explain << "\tb  b  b  b  b  b  b  b  b\n";
+  explain << "\tr  r  r  r  r  r  r  r  r\n";
+  explain << "\tg  g  g  g  g  g  g  g  g\n";
+  explain << "\to  o  o  o  o  o  o  o  o\n";
+  explain << "\ty  y  y  y  y  y  y  y  y\n\n";
+
+  explain << "Each row represents a single face of a RubiksCube internal state.\n";
+  explain << "Currently, the map is as follows: the first three elements represent\n";
+  explain << "the top three cubies, the next two elements are the remaining two\n";
+  explain << "cubies on the right side, the next two elements, the remaining two\n";
+  explain << "bottom cubies, the next element, the single remaining cubies on the\n";
+  explain << "left side, and the last element represents the center cubie. To\n";
+  explain << "determine which are the top, right, bottom, and left cubies, imagine\n";
+  explain << "that the cube has been rotated such that the face in question is in\n";
+  explain << "the 'front' position, (where the blue side is by default). The back\n";
+  explain << "face most be rotated horizontally to the front location whereas the\n";
+  explain << "top and bottom faces must be rotated vertically to the front position\n";
+  explain << "to identify the cubie orientation for these faces. Below is a graphic\n";
+  explain << "to help illustrate.\n\n";
+
+  explain << "\t ----  ----  ----\n";
+  explain << "\t| 0 | | 1 | | 2 |\n";
+  explain << "\t ----  ----  ----\n";
+  explain << "\t| 7 | | 8 | | 3 |\n";
+  explain << "\t ----  ----  ----\n";
+  explain << "\t| 6 | | 5 | | 4 |\n";
+  explain << "\t ----  ----  ----\n\n";
+
+  explain << "RubiksCube faces are represented as follows:\n\n";
+
+  explain << "\tu/U: 'up/top' face\n";
+  explain << "\tf/F: 'front' face\n";
+  explain << "\tr/R: 'right' face\n";
+  explain << "\tb/B: 'back' face\n";
+  explain << "\tl/L: 'left' face\n";
+  explain << "\td/D: 'down/bottom' face\n";
+  explain << "\tmx:  'middle' slice (in the y/z plane)\n";
+  explain << "\tmy:  'middle' slice (in the x/z plane)\n";
+  explain << "\tmz:  'middle' slice (in the x/y plane)\n\n";
+
+  explain << "RubiksCube twists/rotations are represented as follows:\n\n";
+
+  explain << "Face values by themselves (u, f, L, etc.) represent a rotation of that\n";
+  explain << "face clockwise whereas a face suffixed with a 'p' (up, fp, Lp, etc.)\n";
+  explain << "represents a counterclockwise rotation of the associated face.\n";
+  explain << "A capital face value (U, R, D, etc.) represents both the face\n";
+  explain << "represented by the lower case variant along with the adjacent slice of\n";
+  explain << "the cube. In other words, 'R' means rotate both the right face and the\n";
+  explain << "vertical slice of cubies adjacent to the right face clockwise. (This is\n";
+  explain << "equivalent to the 'l' rotation followed by a 'x' rotation of the entire\n";
+  explain << "cube.) Face values repeated (uu, DD, mxx, etc.) represent a double\n";
+  explain << "rotation of that face, i.e., 'uu' is the same as two 'u' rotations or two\n";
+  explain << "'up' rotations.\n";
+
+  explain << "##############################################################################\n";
+
+  std::cout << explain.str() << std::endl;
 }
 
 Cube::~Cube()

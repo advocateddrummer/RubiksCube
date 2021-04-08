@@ -198,6 +198,12 @@ class Cube
      */
     void Print() const;
 
+    /** \brief Explain cube nomenclature.
+     * This method explains the nomenclature used by this program to represent
+     * the cube/cubies, the cube sides, and all the twists.
+     */
+    void Explain() const;
+
     /** \brief Reset cube state
      * This method resets the cube state to the solved state.
      */
