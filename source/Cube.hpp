@@ -162,6 +162,8 @@ class Cube
      */
     bool operator==(const Cube& rhs) const;
 
+    /** \brief TODO: document this?
+     */
     const std::string Solve();
 
     /** \brief Scramble the cube state
@@ -191,6 +193,28 @@ class Cube
      * \param[in] count [default 1] Number of times to perform the 'sexy move'.
      */
     void SexyMove(const int count = 1);
+
+    /** \brief TODO
+     *
+     * This method is a wrapper which performs the 'Sune' algorithm on the cube
+     * state. Note: this should leave the cube state unchanged if performed six
+     * times.
+     *
+     * \param[in] count [default 1] Number of times to perform the 'Sune'
+     *            algorithm.
+     */
+    void Sune(const int count = 1);
+
+    /** \brief TODO
+     *
+     * This method is a wrapper which performs the 'Anti-Sune' algorithm on the
+     * cube state. Note: this should leave the cube state unchanged if
+     * performed six times.
+     *
+     * \param[in] count [default 1] Number of times to perform the 'Anti-Sune'
+     *            algorithm.
+     */
+    void AntiSune(const int count = 1);
 
     /** \brief Print cube state.
      * This method simply prints out the current cube state, as represented by
