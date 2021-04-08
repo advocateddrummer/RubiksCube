@@ -19,7 +19,13 @@ TEST_F(CubeTest, IsSolvedWorksPositive) {
 }
 
 TEST_F(CubeTest, IsSolvedWorksNegative) {
-  a.RandomScramble(1);
+  /* Technically, it is possible that RandomScramble returns a solved cube if
+   * only cube rotations are performed. This clearly causes this test to not
+   * behave the way it is intended. I could simply perform one, or several,
+   * non-rotation moves manually, however, for now, I am increasing the number
+   * of random scrambles to make this less likely to happen.
+   */
+  a.RandomScramble(15);
   ASSERT_FALSE(a.IsSolved());
 }
 
