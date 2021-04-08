@@ -961,9 +961,19 @@ void Cube::Print() const
 {
   std::cout << "in Cube::Print()..." << std::endl;
 
+  //const std::string orange("\033[0;202m");
+  //const std::string red("\033[0;31m");
+  //const std::string red("\033[0;40m");
+  //const std::string green("\033[0;32m");
+  //const std::string yellow("\033[0;33m");
+  //const std::string blue("\033[0;34m");
+  //const std::string white("\033[0;37m");
+  //const std::string reset("\033[0m");
+
   for ( const auto &v : state ) {
     for ( const auto &c : v ) {
-      std::cout << " " << c << " ";
+      //std::cout << " " << blue << c << reset <<  " ";
+      std::cout << " " << c <<  " ";
     }
     std::cout << std::endl;
   }
