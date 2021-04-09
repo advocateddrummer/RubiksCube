@@ -162,7 +162,11 @@ class Cube
      */
     bool operator==(const Cube& rhs) const;
 
-    /** \brief TODO: document this?
+    /** \brief Solve the cube
+     *
+     * This method is a generic wrapper which currently uses the kociemba
+     * infrastructure to obtain a solution. The solution is returned in a
+     * string after being 'translated' from kociemba's syntax to ours.
      */
     const std::string Solve();
 
