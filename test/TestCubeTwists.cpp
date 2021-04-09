@@ -16,27 +16,18 @@ class CubeTwistTest : public ::testing::Test {
  * six times.
  */
 TEST_F(CubeTwistTest, sexyMoveSixTimesFromRandom) {
-  for ( int i = 0; i < 6; i++ ) {
-    b.r();
-    b.u();
-    b.rp();
-    b.up();
-  }
+  /* Perform six 'sexy moves' */
+  b.SexyMove(6);
 
   ASSERT_EQ(a, b);
 }
 
 TEST_F(CubeTwistTest, sexyMoveSixTimesFromSolved) {
-  /* Reset both cube states to solved. */
+  /* Reset cube state to solved. */
   a.ResetCube();
 
   /* Perform six 'sexy moves' */
-  for ( int i = 0; i < 6; i++ ) {
-    a.r();
-    a.u();
-    a.rp();
-    a.up();
-  }
+  a.SexyMove(6);
 
   ASSERT_TRUE(a.IsSolved());
 }
