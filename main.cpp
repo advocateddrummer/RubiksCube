@@ -10,6 +10,11 @@ int main(int argc, char * argv[])
 
   Cube c;
 
+  if (cp->explain) {
+    c.Explain();
+    return 0;
+  }
+
   c.RandomScramble();
   c.Print();
   const std::string solution = c.Solve();
