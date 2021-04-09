@@ -41,6 +41,9 @@ const std::string Cube::TranslateKociembaTwists(const std::string kociembaSoluti
 
   /* Initialize our solution from the kociemba solution. */
   for (const auto &w : words) {
+    /* TODO: What if there is an unexpected/unhandled twist in
+     * kociembaSolution?
+     */
     ourSolution += solutionTraslationMap.at(w);
     ourSolution += " ";
   }
