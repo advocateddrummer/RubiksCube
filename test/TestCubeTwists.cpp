@@ -41,6 +41,44 @@ TEST_F(CubeTwistTest, sexyMoveSixTimesFromSolved) {
   ASSERT_TRUE(a.IsSolved());
 }
 
+TEST_F(CubeTwistTest, suneSixTimesFromSolved) {
+  /* Reset cube state to solved. */
+  a.ResetCube();
+
+  /* Perform six 'Sune' manipulations. */
+  a.Sune(6);
+
+  ASSERT_TRUE(a.IsSolved());
+}
+
+TEST_F(CubeTwistTest, antiSuneSixTimesFromSolved) {
+  /* Reset cube state to solved. */
+  a.ResetCube();
+
+  /* Perform six 'AntiSune' manipulations. */
+  a.AntiSune(6);
+
+  ASSERT_TRUE(a.IsSolved());
+}
+
+TEST_F(CubeTwistTest, suneCancelsAntiSune) {
+  /* Perform one 'Sune' manipulation. */
+  a.Sune();
+  /* Perform one 'AntiSune' manipulation. */
+  a.AntiSune();
+
+  ASSERT_EQ(a, b);
+}
+
+TEST_F(CubeTwistTest, antiSuneCancelsSune) {
+  /* Perform one 'AntiSune' manipulation. */
+  a.AntiSune();
+  /* Perform one 'Sune' manipulation. */
+  a.Sune();
+
+  ASSERT_EQ(a, b);
+}
+
 /********************************************************************/
 /* Single face rotation versus opposite double face rotation tests. */
 /********************************************************************/
