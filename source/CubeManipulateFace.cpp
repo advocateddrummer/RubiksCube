@@ -13,6 +13,36 @@ void Cube::SexyMove(const int count)
   return;
 }
 
+void Cube::Sune(const int count)
+{
+  for ( int c = 0; c < count; c++ ) {
+    this->r();
+    this->u();
+    this->rp();
+    this->u();
+    this->r();
+    this->uu();
+    this->rp();
+  }
+
+  return;
+}
+
+void Cube::AntiSune(const int count)
+{
+  for ( int c = 0; c < count; c++ ) {
+    this->r();
+    this->uu();
+    this->rp();
+    this->up();
+    this->r();
+    this->up();
+    this->rp();
+  }
+
+  return;
+}
+
 void Cube::PermuteFace(const int faceID, const int direction)
 {
 

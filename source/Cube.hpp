@@ -194,7 +194,7 @@ class Cube
      */
     void SexyMove(const int count = 1);
 
-    /** \brief TODO
+    /** \brief Perform 'Sune' algorithm on cube
      *
      * This method is a wrapper which performs the 'Sune' algorithm on the cube
      * state. Note: this should leave the cube state unchanged if performed six
@@ -205,7 +205,7 @@ class Cube
      */
     void Sune(const int count = 1);
 
-    /** \brief TODO
+    /** \brief Perform 'AntiSune' algorithm on cube
      *
      * This method is a wrapper which performs the 'Anti-Sune' algorithm on the
      * cube state. Note: this should leave the cube state unchanged if
