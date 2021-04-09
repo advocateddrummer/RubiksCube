@@ -141,6 +141,9 @@ class Cube
     const std::string TranslateKociembaTwists(const std::string kociembaSolution);
 
   public:
+    // TODO: Do I want to 'internalize' these parameters for any reason? This may
+    // be unnecessary but could also be useful.
+    //CubeParams * params; /**< Parameters for Cube. */
 
     /** \brief Default constructor.
      * Default constructor is default.
