@@ -18,7 +18,7 @@ add_custom_target(git-version
                                    -P ${CMAKE_MODULE_PATH}/GenerateGitVersion.cmake)
 
 # Boost stuff.
-set(BOOST_ROOT "/Users/ehereth/local")
+set(BOOST_ROOT "/usr/local/Cellar/boost/1.76.0/")
 set(Boost_NO_BOOST_CMAKE on)
 set(Boost_NO_SYSTEM_PATHS on)
 set(Boost_USE_STATIC_LIBS on)
